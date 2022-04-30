@@ -32,7 +32,7 @@ namespace Typograf
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.typografpage = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonsave = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.typograflabel = new System.Windows.Forms.Label();
@@ -70,7 +70,7 @@ namespace Typograf
             // typografpage
             // 
             this.typografpage.BackColor = System.Drawing.Color.BlanchedAlmond;
-            this.typografpage.Controls.Add(this.button2);
+            this.typografpage.Controls.Add(this.buttonsave);
             this.typografpage.Controls.Add(this.button1);
             this.typografpage.Controls.Add(this.textBox1);
             this.typografpage.Controls.Add(this.typograflabel);
@@ -81,14 +81,15 @@ namespace Typograf
             this.typografpage.TabIndex = 0;
             this.typografpage.Text = "Типограф";
             // 
-            // button2
+            // buttonsave
             // 
-            this.button2.Location = new System.Drawing.Point(1032, 841);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(304, 61);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Сохранить ";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonsave.Location = new System.Drawing.Point(1032, 841);
+            this.buttonsave.Name = "buttonsave";
+            this.buttonsave.Size = new System.Drawing.Size(304, 61);
+            this.buttonsave.TabIndex = 3;
+            this.buttonsave.Text = "Сохранить ";
+            this.buttonsave.UseVisualStyleBackColor = true;
+            this.buttonsave.Click += new System.EventHandler(this.buttonsave_Click);
             // 
             // button1
             // 
@@ -311,7 +312,7 @@ namespace Typograf
         private System.Windows.Forms.TabPage typografpage;
         private System.Windows.Forms.TabPage propertiespage;
         private System.Windows.Forms.Label typograflabel;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonsave;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button9;
