@@ -37,6 +37,13 @@ namespace Typograf
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.typograflabel = new System.Windows.Forms.Label();
             this.propertiespage = new System.Windows.Forms.TabPage();
+            this.checkboxpravil7 = new System.Windows.Forms.CheckBox();
+            this.checkboxpravil6 = new System.Windows.Forms.CheckBox();
+            this.checkboxpravil5 = new System.Windows.Forms.CheckBox();
+            this.checkboxpravil4 = new System.Windows.Forms.CheckBox();
+            this.checkboxpravil3 = new System.Windows.Forms.CheckBox();
+            this.checkboxpravil2 = new System.Windows.Forms.CheckBox();
+            this.checkboxpravil1 = new System.Windows.Forms.CheckBox();
             this.label7pravil = new System.Windows.Forms.Label();
             this.label6pravil = new System.Windows.Forms.Label();
             this.label5pravil = new System.Windows.Forms.Label();
@@ -45,13 +52,6 @@ namespace Typograf
             this.label2pravil = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1pravil = new System.Windows.Forms.Label();
-            this.checkboxpravil1 = new System.Windows.Forms.CheckBox();
-            this.checkboxpravil2 = new System.Windows.Forms.CheckBox();
-            this.checkboxpravil3 = new System.Windows.Forms.CheckBox();
-            this.checkboxpravil4 = new System.Windows.Forms.CheckBox();
-            this.checkboxpravil5 = new System.Windows.Forms.CheckBox();
-            this.checkboxpravil6 = new System.Windows.Forms.CheckBox();
-            this.checkboxpravil7 = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.typografpage.SuspendLayout();
             this.propertiespage.SuspendLayout();
@@ -145,6 +145,77 @@ namespace Typograf
             this.propertiespage.Text = "Настройки";
             this.propertiespage.UseVisualStyleBackColor = true;
             // 
+            // checkboxpravil7
+            // 
+            this.checkboxpravil7.AutoSize = true;
+            this.checkboxpravil7.Location = new System.Drawing.Point(36, 627);
+            this.checkboxpravil7.Name = "checkboxpravil7";
+            this.checkboxpravil7.Size = new System.Drawing.Size(105, 24);
+            this.checkboxpravil7.TabIndex = 20;
+            this.checkboxpravil7.Text = "опсурдик";
+            this.checkboxpravil7.UseVisualStyleBackColor = true;
+            // 
+            // checkboxpravil6
+            // 
+            this.checkboxpravil6.AutoSize = true;
+            this.checkboxpravil6.Location = new System.Drawing.Point(36, 539);
+            this.checkboxpravil6.Name = "checkboxpravil6";
+            this.checkboxpravil6.Size = new System.Drawing.Size(105, 24);
+            this.checkboxpravil6.TabIndex = 19;
+            this.checkboxpravil6.Text = "русская с";
+            this.checkboxpravil6.UseVisualStyleBackColor = true;
+            // 
+            // checkboxpravil5
+            // 
+            this.checkboxpravil5.AutoSize = true;
+            this.checkboxpravil5.Location = new System.Drawing.Point(36, 446);
+            this.checkboxpravil5.Name = "checkboxpravil5";
+            this.checkboxpravil5.Size = new System.Drawing.Size(44, 24);
+            this.checkboxpravil5.TabIndex = 18;
+            this.checkboxpravil5.Text = "¿";
+            this.checkboxpravil5.UseVisualStyleBackColor = true;
+            // 
+            // checkboxpravil4
+            // 
+            this.checkboxpravil4.AutoSize = true;
+            this.checkboxpravil4.Location = new System.Drawing.Point(36, 352);
+            this.checkboxpravil4.Name = "checkboxpravil4";
+            this.checkboxpravil4.Size = new System.Drawing.Size(40, 24);
+            this.checkboxpravil4.TabIndex = 17;
+            this.checkboxpravil4.Text = "-";
+            this.checkboxpravil4.UseVisualStyleBackColor = true;
+            // 
+            // checkboxpravil3
+            // 
+            this.checkboxpravil3.AutoSize = true;
+            this.checkboxpravil3.Location = new System.Drawing.Point(36, 256);
+            this.checkboxpravil3.Name = "checkboxpravil3";
+            this.checkboxpravil3.Size = new System.Drawing.Size(49, 24);
+            this.checkboxpravil3.TabIndex = 16;
+            this.checkboxpravil3.Text = "—";
+            this.checkboxpravil3.UseVisualStyleBackColor = true;
+            // 
+            // checkboxpravil2
+            // 
+            this.checkboxpravil2.AutoSize = true;
+            this.checkboxpravil2.Location = new System.Drawing.Point(36, 162);
+            this.checkboxpravil2.Name = "checkboxpravil2";
+            this.checkboxpravil2.Size = new System.Drawing.Size(44, 24);
+            this.checkboxpravil2.TabIndex = 15;
+            this.checkboxpravil2.Text = "−";
+            this.checkboxpravil2.UseVisualStyleBackColor = true;
+            // 
+            // checkboxpravil1
+            // 
+            this.checkboxpravil1.AutoSize = true;
+            this.checkboxpravil1.Location = new System.Drawing.Point(36, 69);
+            this.checkboxpravil1.Name = "checkboxpravil1";
+            this.checkboxpravil1.Size = new System.Drawing.Size(67, 24);
+            this.checkboxpravil1.TabIndex = 14;
+            this.checkboxpravil1.Text = "..., ...";
+            this.checkboxpravil1.UseVisualStyleBackColor = true;
+            this.checkboxpravil1.CheckedChanged += new System.EventHandler(this.checkboxpravil1_CheckedChanged);
+            // 
             // label7pravil
             // 
             this.label7pravil.AutoSize = true;
@@ -223,76 +294,6 @@ namespace Typograf
             this.label1pravil.TabIndex = 0;
             this.label1pravil.Text = "правило знаков препинания";
             this.label1pravil.Click += new System.EventHandler(this.label1pravil_Click);
-            // 
-            // checkboxpravil1
-            // 
-            this.checkboxpravil1.AutoSize = true;
-            this.checkboxpravil1.Location = new System.Drawing.Point(36, 69);
-            this.checkboxpravil1.Name = "checkboxpravil1";
-            this.checkboxpravil1.Size = new System.Drawing.Size(67, 24);
-            this.checkboxpravil1.TabIndex = 14;
-            this.checkboxpravil1.Text = "..., ...";
-            this.checkboxpravil1.UseVisualStyleBackColor = true;
-            // 
-            // checkboxpravil2
-            // 
-            this.checkboxpravil2.AutoSize = true;
-            this.checkboxpravil2.Location = new System.Drawing.Point(36, 162);
-            this.checkboxpravil2.Name = "checkboxpravil2";
-            this.checkboxpravil2.Size = new System.Drawing.Size(44, 24);
-            this.checkboxpravil2.TabIndex = 15;
-            this.checkboxpravil2.Text = "−";
-            this.checkboxpravil2.UseVisualStyleBackColor = true;
-            // 
-            // checkboxpravil3
-            // 
-            this.checkboxpravil3.AutoSize = true;
-            this.checkboxpravil3.Location = new System.Drawing.Point(36, 256);
-            this.checkboxpravil3.Name = "checkboxpravil3";
-            this.checkboxpravil3.Size = new System.Drawing.Size(49, 24);
-            this.checkboxpravil3.TabIndex = 16;
-            this.checkboxpravil3.Text = "—";
-            this.checkboxpravil3.UseVisualStyleBackColor = true;
-            // 
-            // checkboxpravil4
-            // 
-            this.checkboxpravil4.AutoSize = true;
-            this.checkboxpravil4.Location = new System.Drawing.Point(36, 352);
-            this.checkboxpravil4.Name = "checkboxpravil4";
-            this.checkboxpravil4.Size = new System.Drawing.Size(40, 24);
-            this.checkboxpravil4.TabIndex = 17;
-            this.checkboxpravil4.Text = "-";
-            this.checkboxpravil4.UseVisualStyleBackColor = true;
-            // 
-            // checkboxpravil5
-            // 
-            this.checkboxpravil5.AutoSize = true;
-            this.checkboxpravil5.Location = new System.Drawing.Point(36, 446);
-            this.checkboxpravil5.Name = "checkboxpravil5";
-            this.checkboxpravil5.Size = new System.Drawing.Size(44, 24);
-            this.checkboxpravil5.TabIndex = 18;
-            this.checkboxpravil5.Text = "¿";
-            this.checkboxpravil5.UseVisualStyleBackColor = true;
-            // 
-            // checkboxpravil6
-            // 
-            this.checkboxpravil6.AutoSize = true;
-            this.checkboxpravil6.Location = new System.Drawing.Point(36, 539);
-            this.checkboxpravil6.Name = "checkboxpravil6";
-            this.checkboxpravil6.Size = new System.Drawing.Size(105, 24);
-            this.checkboxpravil6.TabIndex = 19;
-            this.checkboxpravil6.Text = "русская с";
-            this.checkboxpravil6.UseVisualStyleBackColor = true;
-            // 
-            // checkboxpravil7
-            // 
-            this.checkboxpravil7.AutoSize = true;
-            this.checkboxpravil7.Location = new System.Drawing.Point(36, 627);
-            this.checkboxpravil7.Name = "checkboxpravil7";
-            this.checkboxpravil7.Size = new System.Drawing.Size(105, 24);
-            this.checkboxpravil7.TabIndex = 20;
-            this.checkboxpravil7.Text = "опсурдик";
-            this.checkboxpravil7.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 

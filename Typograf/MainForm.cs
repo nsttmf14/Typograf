@@ -8,9 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Activities.Statements;
 
 namespace Typograf
 {
+    enum State
+    {
+        letter, coma, dash, space
+    }
     public partial class MainForm : Form
     {
         public MainForm()
@@ -76,6 +81,115 @@ namespace Typograf
                 {
                     sw.WriteLine(textBox1.Text);
                     sw.Close();
+                }
+            }
+        }
+
+        public string[] Getstroka()
+        {
+            string[] stroca = new string[textBox1.Lines.Count()];
+            for (int i = 0; i < stroca.Length; i++)
+                stroca[i] = textBox1.Lines[i];
+            return stroca;
+        }
+
+        private void checkboxpravil1_CheckedChanged(object sender, EventArgs e)
+        {
+            string[] strochka = Getstroka();
+            var probel =" ";
+
+            for (int i = 0; i < strochka.Length; i++)
+            {
+                if (strochka[i-1]==probel)
+                {
+                    if (strochka[i]==prev)
+                    {
+
+                    }
+
+                    if (/*тире*/)
+                    {
+
+                    }
+
+                    if (/*символ кавычка или скобка*/)
+                    {
+
+                    }
+
+                    if (/*буква же*/)
+                    {
+
+                    }
+                }
+                
+                if (strochka[i - 1]==тире)
+                {
+                    if (strochka[i] == prev)
+                    {
+
+                    }
+
+                    if (/*тире*/)
+                    {
+
+                    }
+
+                    if (/*символ кавычка или скобка*/)
+                    {
+
+                    }
+
+                    if (/*буква же*/)
+                    {
+
+                    }
+                }
+
+                if (strochka[i - 1] == кавычки)
+                {
+                    if (strochka[i] == prev)
+                    {
+
+                    }
+
+                    if (/*тире*/)
+                    {
+
+                    }
+
+                    if (/*символ кавычка или скобка*/)
+                    {
+
+                    }
+
+                    if (/*буква же*/)
+                    {
+
+                    }
+                }
+
+                if (strochka[i - 1] == буква)
+                {
+                    if (strochka[i] == prev)
+                    {
+
+                    }
+
+                    if (/*тире*/)
+                    {
+
+                    }
+
+                    if (/*символ кавычка или скобка*/)
+                    {
+
+                    }
+
+                    if (/*буква же*/)
+                    {
+
+                    }
                 }
             }
         }
