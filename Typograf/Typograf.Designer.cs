@@ -30,14 +30,26 @@ namespace Typograf
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Typograf));
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(336, 665);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(198, 45);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Старт";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Typograf
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Typograf.Properties.Resources.CpQHxRNAUR8VLyhGpl7qZxc1wXpD5yvCgbUnlacj3ECwmCsAlYB8mLPNrj6zQv95mLAo_ILAdemDeGnIh_vnBqkU;
-            this.ClientSize = new System.Drawing.Size(869, 722);
+            this.ClientSize = new System.Drawing.Size(886, 807);
+            this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Typograf";
@@ -48,5 +60,7 @@ namespace Typograf
         }
 
         #endregion
+
+        private System.Windows.Forms.Button button1;
     }
 }
