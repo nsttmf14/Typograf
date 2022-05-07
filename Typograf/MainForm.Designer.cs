@@ -99,6 +99,7 @@ namespace Typograf
             this.button1.TabIndex = 2;
             this.button1.Text = "Отипогрфировать";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox1
             // 
@@ -174,6 +175,7 @@ namespace Typograf
             this.checkboxpravil5.TabIndex = 18;
             this.checkboxpravil5.Text = "¿";
             this.checkboxpravil5.UseVisualStyleBackColor = true;
+            this.checkboxpravil5.CheckedChanged += new System.EventHandler(this.checkboxpravil5_CheckedChanged);
             // 
             // checkboxpravil4
             // 
@@ -184,6 +186,7 @@ namespace Typograf
             this.checkboxpravil4.TabIndex = 17;
             this.checkboxpravil4.Text = "-";
             this.checkboxpravil4.UseVisualStyleBackColor = true;
+            this.checkboxpravil4.CheckedChanged += new System.EventHandler(this.checkboxpravil4_CheckedChanged);
             // 
             // checkboxpravil3
             // 

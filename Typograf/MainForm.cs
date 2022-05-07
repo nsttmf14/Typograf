@@ -14,7 +14,7 @@ namespace Typograf
 {
     enum State
     {
-        letter, coma, dash, space
+        letter, coma, dash, space, hyphen
     }
     public partial class MainForm : Form
     {
@@ -210,6 +210,70 @@ namespace Typograf
                     if (char.IsLetterOrDigit(letter) && state1 == State.letter)
                     {
 
+                    }
+                }
+            }
+        }
+
+        private void checkboxpravil4_CheckedChanged(object sender, EventArgs e)
+        {
+            string[] strochka = Getstroka();
+            State state1 = State.letter;
+            State state2 = State.hyphen;
+            for (int i = 0; i < strochka.Length; i++)
+            {
+                string hyphen = "-";
+                var letter = Convert.ToChar(strochka[i]);
+                var letter0 = Convert.ToChar(strochka[i - 1]);
+                if (strochka[i]==hyphen && state2 == State.hyphen)
+                {
+                    if (char.IsLetterOrDigit(letter0) && state1 == State.letter)
+                    {
+                        
+                    }
+
+                    else
+                    {
+                        
+                    }
+                }
+            }
+
+        }
+
+        private void checkboxpravil5_CheckedChanged(object sender, EventArgs e)
+        {
+            string[] stroka = Getstroka();
+            for (int i=0; i<stroka.Length; i++)
+            {
+                if (stroka[i] == "?")
+                {
+                    stroka[i] = "¿";
+                }
+
+                if (stroka[i] == "!?")
+                {
+                    stroka[i] = "?!";
+                }
+            }
+        }
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (checkboxpravil5.Checked)
+            {
+                string[] stroka = Getstroka();
+                for (int i = 0; i < stroka.Length; i++)
+                {
+                    if (stroka[i] == "?")
+                    {
+                        stroka[i] = "¿";
+                    }
+
+                    if (stroka[i] == "!?")
+                    {
+                        stroka[i] = "?!";
                     }
                 }
             }
