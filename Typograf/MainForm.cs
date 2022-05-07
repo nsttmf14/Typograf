@@ -31,7 +31,7 @@ namespace Typograf
 
         private void typograflabel_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("траляля");
+            MessageBox.Show("Это инструмент, который приводит текст в соответствие с правилами экранной типографики");
         }
 
         private void label2pravil_Click(object sender, EventArgs e)
@@ -96,97 +96,118 @@ namespace Typograf
         private void checkboxpravil1_CheckedChanged(object sender, EventArgs e)
         {
             string[] strochka = Getstroka();
-            var probel =" ";
+            var probel = " ";
+            var dash = "–";
+            State state1 = State.letter;
+            State state2 = State.coma;
+            State state3 = State.dash;
+            State state4 = State.space;
+            var kav1="\"";
+            var skobki1 = "(";
+            var kav2 = "\"";
+            var skobki2 = ")";
 
             for (int i = 0; i < strochka.Length; i++)
             {
-                if (strochka[i-1]==probel)
+                var letter = Convert.ToChar(strochka[i]);
+                var letter0 = Convert.ToChar(strochka[i-1]);
+                if (/*ничего нет первее*/ true)
                 {
-                    if (strochka[i]==prev)
+                    
+                }
+
+                if (strochka[i-1]==probel && state4==State.space)
+                {
+                    if (strochka[i]==probel && state4==State.space)
                     {
 
                     }
 
-                    if (/*тире*/)
+                    if (strochka[i]==dash && state3==State.dash)
                     {
 
                     }
 
-                    if (/*символ кавычка или скобка*/)
+                    if ((strochka[i]==kav1 || strochka[i]==kav2 || strochka[i] == skobki1 || strochka[i] == skobki2) && (state2==State.coma))
                     {
 
                     }
 
-                    if (/*буква же*/)
+                    if (char.IsLetterOrDigit(letter) && state1==State.letter)
+                    {
+
+                    }
+
+                    if (strochka[i] == "пустая")
                     {
 
                     }
                 }
                 
-                if (strochka[i - 1]==тире)
+                if (strochka[i - 1]== "–" && state3==State.dash)
                 {
-                    if (strochka[i] == prev)
+                    if (strochka[i] == probel && state4 == State.space)
                     {
 
                     }
 
-                    if (/*тире*/)
+                    if (strochka[i] == dash && state3 == State.dash)
                     {
 
                     }
 
-                    if (/*символ кавычка или скобка*/)
+                    if ((strochka[i] == kav1 || strochka[i] == kav2 || strochka[i] == skobki1 || strochka[i] == skobki2) && (state2 == State.coma))
                     {
 
                     }
 
-                    if (/*буква же*/)
+                    if (char.IsLetterOrDigit(letter) && state1 == State.letter)
                     {
 
                     }
                 }
 
-                if (strochka[i - 1] == кавычки)
+                if ((strochka[i-1] == kav1 || strochka[i-1] == kav2 || strochka[i-1] == skobki1 || strochka[i-1] == skobki2) && (state2 == State.coma))
                 {
-                    if (strochka[i] == prev)
+                    if (strochka[i]==probel && state4==State.space)
                     {
 
                     }
 
-                    if (/*тире*/)
+                    if (strochka[i]==dash && state3==State.dash)
                     {
 
                     }
 
-                    if (/*символ кавычка или скобка*/)
+                    if ((strochka[i]==kav1 || strochka[i]==kav2 || strochka[i] == skobki1 || strochka[i] == skobki2) && (state2==State.coma))
                     {
 
                     }
 
-                    if (/*буква же*/)
+                    if (char.IsLetterOrDigit(letter) && state1==State.letter)
                     {
 
                     }
                 }
 
-                if (strochka[i - 1] == буква)
+                if (char.IsLetterOrDigit(letter0) && state1 == State.letter)
                 {
-                    if (strochka[i] == prev)
+                    if (strochka[i] == probel && state4 == State.space)
                     {
 
                     }
 
-                    if (/*тире*/)
+                    if (strochka[i] == dash && state3 == State.dash)
                     {
 
                     }
 
-                    if (/*символ кавычка или скобка*/)
+                    if ((strochka[i] == kav1 || strochka[i] == kav2 || strochka[i] == skobki1 || strochka[i] == skobki2) && (state2 == State.coma))
                     {
 
                     }
 
-                    if (/*буква же*/)
+                    if (char.IsLetterOrDigit(letter) && state1 == State.letter)
                     {
 
                     }
