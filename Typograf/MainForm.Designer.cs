@@ -175,7 +175,6 @@ namespace Typograf
             this.checkboxpravil5.TabIndex = 18;
             this.checkboxpravil5.Text = "¿";
             this.checkboxpravil5.UseVisualStyleBackColor = true;
-            this.checkboxpravil5.CheckedChanged += new System.EventHandler(this.checkboxpravil5_CheckedChanged);
             // 
             // checkboxpravil4
             // 

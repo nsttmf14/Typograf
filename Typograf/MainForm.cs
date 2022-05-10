@@ -74,7 +74,7 @@ namespace Typograf
             SaveFileDialog saveFile1 = new SaveFileDialog();
             saveFile1.DefaultExt = "*.txt";
             saveFile1.Filter = "Text files|*.txt";
-            if (saveFile1.ShowDialog() == System.Windows.Forms.DialogResult.OK &&
+            if (saveFile1.ShowDialog() == DialogResult.OK &&
                 saveFile1.FileName.Length > 0)
             {
                 using (StreamWriter sw = new StreamWriter(saveFile1.FileName, true))
@@ -87,9 +87,11 @@ namespace Typograf
 
         public string[] Getstroka()
         {
-            string[] stroca = new string[textBox1.Lines.Count()];
+            string[] stroca = new string[Convert.ToInt32(textBox1.Text)];
             for (int i = 0; i < stroca.Length; i++)
-                stroca[i] = textBox1.Lines[i];
+            {
+                stroca[i] = Convert.ToString(textBox1.Text);
+            }
             return stroca;
         }
 
@@ -241,39 +243,52 @@ namespace Typograf
 
         }
 
-        private void checkboxpravil5_CheckedChanged(object sender, EventArgs e)
-        {
-            string[] stroka = Getstroka();
-            for (int i=0; i<stroka.Length; i++)
-            {
-                if (stroka[i] == "?")
-                {
-                    stroka[i] = "¿";
-                }
-
-                if (stroka[i] == "!?")
-                {
-                    stroka[i] = "?!";
-                }
-            }
-        }
-
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string text = textBox1.Text;
+
             if (checkboxpravil5.Checked)
             {
-                string[] stroka = Getstroka();
-                for (int i = 0; i < stroka.Length; i++)
+                if (textBox1.Text.Contains("?"))
                 {
-                    if (stroka[i] == "?")
+                    textBox1.Text = textBox1.Text.Replace("?", "¿");
+                }
+                if (textBox1.Text.Contains("!?"))
+                {
+                    textBox1.Text = textBox1.Text.Replace("!?", "?!");
+                }
+            }
+
+            if (checkboxpravil6.Checked)
+            {
+                if (textBox1.Text.Contains("c") || textBox1.Text.Contains("C"))
+                {
+                    textBox1.Text = textBox1.Text.Replace("c", "с");
+                    textBox1.Text = textBox1.Text.Replace("C", "С");
+                }
+            }
+
+            if (checkboxpravil2.Checked)
+            {
+                string numbers = "1234567890";
+                string dash = "-";
+                string minus = "-";
+
+                for (int i = 0; i < text.Length; i++)
+                {
+                    //Если текст представляет собой выражение типа "5 - 2" или "5-2" с тире вместо минуса
+                    if (numbers.Contains(text[i - 1]) || numbers.Contains(text[i - 2]) && (numbers.Contains(text[i + 1]) || numbers.Contains(text[i + 2])) && text[i] == dash)
                     {
-                        stroka[i] = "¿";
+                        //Меняем на минус
+                        text[i] = minus;
                     }
 
-                    if (stroka[i] == "!?")
+                    //Если текст представляет собой выражение, не являющеется числовым и имеет минус вместо тире
+                    if (!(numbers.Contains(text[i - 1]) || numbers.Contains(text[i - 2]) && !(numbers.Contains(text[i + 1]) || numbers.Contains(text[i + 2])) && text[i] == minus))
                     {
-                        stroka[i] = "?!";
+                        //Меняем на тире
+                        text[i] = dash;
                     }
                 }
             }
