@@ -85,29 +85,20 @@ namespace Typograf
             }
         }
 
-        public string[] Getstroka()
-        {
-            string[] stroca = new string[Convert.ToInt32(textBox1.Text)];
-            for (int i = 0; i < stroca.Length; i++)
-            {
-                stroca[i] = Convert.ToString(textBox1.Text);
-            }
-            return stroca;
-        }
 
         private void checkboxpravil1_CheckedChanged(object sender, EventArgs e)
         {
-            string[] strochka = Getstroka();
-            var probel = " ";
-            var dash = "–";
+            string strochka = textBox1.Text;
+            char probel = ' ';
+            var dash = '–';
             State state1 = State.letter;
             State state2 = State.coma;
             State state3 = State.dash;
             State state4 = State.space;
-            var kav1="\"";
-            var skobki1 = "(";
-            var kav2 = "\"";
-            var skobki2 = ")";
+            char kav1='\'';
+            char skobki1 = '(';
+            char kav2 = '\"';
+            char skobki2 = ')';
 
             for (int i = 0; i < strochka.Length; i++)
             {
@@ -140,13 +131,13 @@ namespace Typograf
 
                     }
 
-                    if (strochka[i] == "пустая")
+                    /*if (пустая)
                     {
 
-                    }
+                    }*/
                 }
                 
-                if (strochka[i - 1]== "–" && state3==State.dash)
+                if (strochka[i - 1]== dash && state3==State.dash)
                 {
                     if (strochka[i] == probel && state4 == State.space)
                     {
@@ -219,15 +210,14 @@ namespace Typograf
 
         private void checkboxpravil4_CheckedChanged(object sender, EventArgs e)
         {
-            string[] strochka = Getstroka();
             State state1 = State.letter;
             State state2 = State.hyphen;
-            for (int i = 0; i < strochka.Length; i++)
+            for (int i = 0; i < textBox1.Text.Length; i++)
             {
-                string hyphen = "-";
-                var letter = Convert.ToChar(strochka[i]);
-                var letter0 = Convert.ToChar(strochka[i - 1]);
-                if (strochka[i]==hyphen && state2 == State.hyphen)
+                char hyphen = '-';
+                var letter = Convert.ToChar(textBox1.Text[i]);
+                var letter0 = Convert.ToChar(textBox1.Text[i - 1]);
+                if (textBox1.Text[i]==hyphen && state2 == State.hyphen)
                 {
                     if (char.IsLetterOrDigit(letter0) && state1 == State.letter)
                     {
@@ -309,8 +299,7 @@ namespace Typograf
                   {   "Парень", "Сударь"},
                    { "Девушки", "Барышни"}
             };
-                string strochka = textBox1.Text;
-                string result = Dictionar.Aggregate(strochka, (s, kvp) => s.Replace(kvp.Key, kvp.Value));
+                string result = Dictionar.Aggregate(text, (s, kvp) => s.Replace(kvp.Key, kvp.Value));
                 textBox1.Text = result;
             }
         }
