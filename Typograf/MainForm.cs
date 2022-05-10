@@ -272,8 +272,8 @@ namespace Typograf
             if (checkboxpravil2.Checked)
             {
                 string numbers = "1234567890";
-                string dash = "-";
-                string minus = "-";
+                char dash = '-';
+                char minus = '-';
 
                 for (int i = 0; i < text.Length; i++)
                 {
@@ -281,14 +281,14 @@ namespace Typograf
                     if (numbers.Contains(text[i - 1]) || numbers.Contains(text[i - 2]) && (numbers.Contains(text[i + 1]) || numbers.Contains(text[i + 2])) && text[i] == dash)
                     {
                         //Меняем на минус
-                        text[i] = minus;
-                    }
+                        textBox1.Text = textBox1.Text.Replace("-", "-");
 
-                    //Если текст представляет собой выражение, не являющеется числовым и имеет минус вместо тире
-                    if (!(numbers.Contains(text[i - 1]) || numbers.Contains(text[i - 2]) && !(numbers.Contains(text[i + 1]) || numbers.Contains(text[i + 2])) && text[i] == minus))
-                    {
-                        //Меняем на тире
-                        text[i] = dash;
+                        //Если текст представляет собой выражение, не являющеется числовым и имеет минус вместо тире
+                        if (!(numbers.Contains(text[i - 1]) || numbers.Contains(text[i - 2]) && !(numbers.Contains(text[i + 1]) || numbers.Contains(text[i + 2])) && text[i] == minus))
+                        {
+                            //Меняем на тире
+                            textBox1.Text = textBox1.Text.Replace("-", "-");
+                        }
                     }
                 }
             }
