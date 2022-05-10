@@ -291,6 +291,28 @@ namespace Typograf
                     }
                 }
             }
+            if (checkboxpravil7.Checked)
+            {
+                Dictionary<string, string> Dictionar = new Dictionary<string, string>()
+            {
+                { "Ты", "Вы"},
+                { "Тебе", "Вам"},
+                { "Привет", "Приветствую"},
+                { "Пока", "До свидания"},
+                   { "Девушка", "Барышня"},
+                  {  "Девушке", "Барышне"},
+                  {  "Парню", "Сударю"},
+                   { "Парни", "Судари"},
+                    { "Парней", "Сударей"},
+                    { "Нет", "Я вынужден отказаться"},
+                   {  "Девушек", "Барышень"},
+                  {   "Парень", "Сударь"},
+                   { "Девушки", "Барышни"}
+            };
+                string strochka = textBox1.Text;
+                string result = Dictionar.Aggregate(strochka, (s, kvp) => s.Replace(kvp.Key, kvp.Value));
+                textBox1.Text = result;
+            }
         }
     }
 }
