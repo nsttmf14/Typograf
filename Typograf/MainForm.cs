@@ -282,13 +282,12 @@ namespace Typograf
                     {
                         //Меняем на минус
                         textBox1.Text = textBox1.Text.Replace("-", "-");
-
+                    }
                         //Если текст представляет собой выражение, не являющеется числовым и имеет минус вместо тире
-                        if (!(numbers.Contains(text[i - 1]) || numbers.Contains(text[i - 2]) && !(numbers.Contains(text[i + 1]) || numbers.Contains(text[i + 2])) && text[i] == minus))
-                        {
+                    if (!(numbers.Contains(text[i - 1]) || numbers.Contains(text[i - 2]) && !(numbers.Contains(text[i + 1]) || numbers.Contains(text[i + 2])) && text[i] == minus))
+                    {
                             //Меняем на тире
                             textBox1.Text = textBox1.Text.Replace("-", "-");
-                        }
                     }
                 }
             }
