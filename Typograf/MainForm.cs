@@ -237,6 +237,28 @@ namespace Typograf
         private void button1_Click(object sender, EventArgs e)
         {
             string text = textBox1.Text;
+            char probel = ' ';
+
+            if (checkboxpravil3.Checked)
+            {
+                for (int i = 1; i <= text.Length-1; i++) 
+                {
+                    if (text[i]==probel && Char.IsLetterOrDigit(text[i+1]))
+                    {
+                        textBox1.Text = textBox1.Text.Replace("-", "—");
+                    }
+                    if (Char.IsLetterOrDigit(text[i]) && text[i-1] == '-')
+                    {
+                        textBox1.Text = textBox1.Text.Replace("-", "-");
+                    }
+
+                    if (textBox1.Text[0] == '-')
+                    {
+                        textBox1.Text = textBox1.Text.Replace("-", "_");
+                    }
+                }
+                
+            }
 
             if (checkboxpravil5.Checked)
             {
