@@ -239,13 +239,15 @@ namespace Typograf
             string text = textBox1.Text;
             char probel = ' ';
 
+           
+
             if (checkboxpravil3.Checked)
             {
                 for (int i = 1; i <= text.Length-1; i++) 
                 {
                     if (text[i]==probel && Char.IsLetterOrDigit(text[i+1]))
                     {
-                        textBox1.Text = textBox1.Text.Replace("-", "—");
+                        textBox1.Text = textBox1.Text.Replace('-', '—');
                     }
                     if (Char.IsLetterOrDigit(text[i]) && text[i-1] == '-')
                     {
@@ -256,8 +258,7 @@ namespace Typograf
                     {
                         textBox1.Text = textBox1.Text.Replace("-", "_");
                     }
-                }
-                
+                }     
             }
 
             if (checkboxpravil5.Checked)
@@ -283,23 +284,16 @@ namespace Typograf
 
             if (checkboxpravil2.Checked)
             {
-                string numbers = "1234567890";
-                char dash = '-';
-                char minus = '-';
-
-                for (int i = 0; i < text.Length; i++)
+                for (int i = 1; i <= text.Length - 2; i++)
                 {
-                    //Если текст представляет собой выражение типа "5 - 2" или "5-2" с тире вместо минуса
-                    if (numbers.Contains(text[i - 1]) || numbers.Contains(text[i - 2]) && (numbers.Contains(text[i + 1]) || numbers.Contains(text[i + 2])) && text[i] == dash)
+                    if (text[i+1] == probel && text[i-1]== probel && Char.IsDigit(text[i+2]) && Char.IsDigit(text[i-2]))
                     {
-                        //Меняем на минус
-                        textBox1.Text = textBox1.Text.Replace("-", "-");
+                        textBox1.Text = textBox1.Text.Replace('-', '−');
                     }
-                        //Если текст представляет собой выражение, не являющеется числовым и имеет минус вместо тире
-                    if (!(numbers.Contains(text[i - 1]) || numbers.Contains(text[i - 2]) && !(numbers.Contains(text[i + 1]) || numbers.Contains(text[i + 2])) && text[i] == minus))
-                    {
-                            //Меняем на тире
-                            textBox1.Text = textBox1.Text.Replace("-", "-");
+
+                    if (Char.IsDigit(text[i + 1]) && Char.IsDigit(text[i - 1]))
+                    {   
+                        textBox1.Text = textBox1.Text.Replace('-', '−');
                     }
                 }
             }
