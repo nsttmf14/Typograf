@@ -35,7 +35,7 @@ namespace Typograf
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(336, 665);
+            this.button1.Location = new System.Drawing.Point(330, 636);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(198, 45);
             this.button1.TabIndex = 0;
@@ -48,6 +48,7 @@ namespace Typograf
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Typograf.Properties.Resources.CpQHxRNAUR8VLyhGpl7qZxc1wXpD5yvCgbUnlacj3ECwmCsAlYB8mLPNrj6zQv95mLAo_ILAdemDeGnIh_vnBqkU;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(886, 807);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;

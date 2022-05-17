@@ -1,14 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Activities.Statements;
 
 namespace Typograf
 {
@@ -16,6 +10,7 @@ namespace Typograf
     {
         letter, coma, dash, space, hyphen
     }
+
     public partial class MainForm : Form
     {
         public MainForm()
@@ -85,221 +80,180 @@ namespace Typograf
             }
         }
 
-
-        private void checkboxpravil1_CheckedChanged(object sender, EventArgs e)
-        {
-            string strochka = textBox1.Text;
-            char probel = ' ';
-            var dash = '–';
-            State state1 = State.letter;
-            State state2 = State.coma;
-            State state3 = State.dash;
-            State state4 = State.space;
-            char kav1='\'';
-            char skobki1 = '(';
-            char kav2 = '\"';
-            char skobki2 = ')';
-
-            for (int i = 0; i < strochka.Length; i++)
-            {
-                var letter = Convert.ToChar(strochka[i]);
-                var letter0 = Convert.ToChar(strochka[i-1]);
-                if (/*ничего нет первее*/ true)
-                {
-                    
-                }
-
-                if (strochka[i-1]==probel && state4==State.space)
-                {
-                    if (strochka[i]==probel && state4==State.space)
-                    {
-
-                    }
-
-                    if (strochka[i]==dash && state3==State.dash)
-                    {
-
-                    }
-
-                    if ((strochka[i]==kav1 || strochka[i]==kav2 || strochka[i] == skobki1 || strochka[i] == skobki2) && (state2==State.coma))
-                    {
-
-                    }
-
-                    if (char.IsLetterOrDigit(letter) && state1==State.letter)
-                    {
-
-                    }
-
-                    /*if (пустая)
-                    {
-
-                    }*/
-                }
-                
-                if (strochka[i - 1]== dash && state3==State.dash)
-                {
-                    if (strochka[i] == probel && state4 == State.space)
-                    {
-
-                    }
-
-                    if (strochka[i] == dash && state3 == State.dash)
-                    {
-
-                    }
-
-                    if ((strochka[i] == kav1 || strochka[i] == kav2 || strochka[i] == skobki1 || strochka[i] == skobki2) && (state2 == State.coma))
-                    {
-
-                    }
-
-                    if (char.IsLetterOrDigit(letter) && state1 == State.letter)
-                    {
-
-                    }
-                }
-
-                if ((strochka[i-1] == kav1 || strochka[i-1] == kav2 || strochka[i-1] == skobki1 || strochka[i-1] == skobki2) && (state2 == State.coma))
-                {
-                    if (strochka[i]==probel && state4==State.space)
-                    {
-
-                    }
-
-                    if (strochka[i]==dash && state3==State.dash)
-                    {
-
-                    }
-
-                    if ((strochka[i]==kav1 || strochka[i]==kav2 || strochka[i] == skobki1 || strochka[i] == skobki2) && (state2==State.coma))
-                    {
-
-                    }
-
-                    if (char.IsLetterOrDigit(letter) && state1==State.letter)
-                    {
-
-                    }
-                }
-
-                if (char.IsLetterOrDigit(letter0) && state1 == State.letter)
-                {
-                    if (strochka[i] == probel && state4 == State.space)
-                    {
-
-                    }
-
-                    if (strochka[i] == dash && state3 == State.dash)
-                    {
-
-                    }
-
-                    if ((strochka[i] == kav1 || strochka[i] == kav2 || strochka[i] == skobki1 || strochka[i] == skobki2) && (state2 == State.coma))
-                    {
-
-                    }
-
-                    if (char.IsLetterOrDigit(letter) && state1 == State.letter)
-                    {
-
-                    }
-                }
-            }
-        }
-
-        private void checkboxpravil4_CheckedChanged(object sender, EventArgs e)
-        {
-            State state1 = State.letter;
-            State state2 = State.hyphen;
-            for (int i = 0; i < textBox1.Text.Length; i++)
-            {
-                char hyphen = '-';
-                var letter = Convert.ToChar(textBox1.Text[i]);
-                var letter0 = Convert.ToChar(textBox1.Text[i - 1]);
-                if (textBox1.Text[i]==hyphen && state2 == State.hyphen)
-                {
-                    if (char.IsLetterOrDigit(letter0) && state1 == State.letter)
-                    {
-                        
-                    }
-
-                    else
-                    {
-                        
-                    }
-                }
-            }
-
-        }
-
-
         private void button1_Click(object sender, EventArgs e)
         {
             string text = textBox1.Text;
             char probel = ' ';
+            char[] arr = { '.', ',', '-', ':', ';', '?', '!' };
 
-           
-
-            if (checkboxpravil3.Checked)
+            if (checkboxpravil1.Checked)
             {
-                for (int i = 1; i <= text.Length-1; i++) 
+                for (int i = 0; i < text.Length - 1; i++)
                 {
-                    if (text[i]==probel && Char.IsLetterOrDigit(text[i+1]))
+                    if (arr.Contains((text[i])))
                     {
-                        textBox1.Text = textBox1.Text.Replace('-', '—');
+                        if (text[i - 1] == probel && text[i + 1] == probel)
+                        {
+                            text = text.Remove(i - 1, 1);
+                            textBox1.Text = text;
+                        }
+
+                        if (Char.IsLetterOrDigit(text[i + 1]) && text[i - 1] == probel)
+                        {
+                            text = text.Insert(i + 1, " ");
+                            text = text.Remove(i - 1, 1);
+                            textBox1.Text = text;
+                        }
                     }
-                    if (Char.IsLetterOrDigit(text[i]) && text[i-1] == '-')
+
+                    /*if (text[i]== '—' && Char.IsLetterOrDigit(text[i-1]) && Char.IsLetterOrDigit(text[i + 1]))
                     {
-                        textBox1.Text = textBox1.Text.Replace("-", "-");
+                        text = text.Insert(i + 1 , " ");
+                        text = text.Insert(i - 1 , " ");
+                        textBox1.Text = text;
                     }
 
-                    if (textBox1.Text[0] == '-')
+                    if (text[i] == '—' && Char.IsLetterOrDigit(text[i - 1]) && text[i + 1] == probel)
                     {
-                        textBox1.Text = textBox1.Text.Replace("-", "_");
+                        text = text.Insert(i - 1, " ");
+                        textBox1.Text = text;
                     }
-                }     
-            }
 
-            if (checkboxpravil5.Checked)
-            {
-                if (textBox1.Text.Contains("?"))
-                {
-                    textBox1.Text = textBox1.Text.Replace("?", "¿");
-                }
-                if (textBox1.Text.Contains("!?"))
-                {
-                    textBox1.Text = textBox1.Text.Replace("!?", "?!");
-                }
-            }
-
-            if (checkboxpravil6.Checked)
-            {
-                if (textBox1.Text.Contains("c") || textBox1.Text.Contains("C"))
-                {
-                    textBox1.Text = textBox1.Text.Replace("c", "с");
-                    textBox1.Text = textBox1.Text.Replace("C", "С");
-                }
-            }
-
-            if (checkboxpravil2.Checked)
-            {
-                for (int i = 1; i <= text.Length - 2; i++)
-                {
-                    if (text[i+1] == probel && text[i-1]== probel && Char.IsDigit(text[i+2]) && Char.IsDigit(text[i-2]))
+                    if (text[i] == '—' && text[i-1]==probel && Char.IsLetterOrDigit(text[i + 1]))
                     {
-                        textBox1.Text = textBox1.Text.Replace('-', '−');
+                        text = text.Insert(i + 1, " ");
+                        textBox1.Text = text;
+                    }
+                    */
+                    char[] skobki1 = { '{', '[', '(' }; 
+                    char[] skobki2= { '}', ']', ')' };
+
+                    if ((text[i] == '«' || text[i] == '"' || skobki1.Contains(text[i])) && text[i + 1] == probel)
+                    {
+                        text = text.Remove(i + 1, 1);
+                        textBox1.Text = text;
                     }
 
-                    if (Char.IsDigit(text[i + 1]) && Char.IsDigit(text[i - 1]))
-                    {   
-                        textBox1.Text = textBox1.Text.Replace('-', '−');
+                    //if ((text[i] == '»' || text[i] == '"' || skobki2.Contains(text[i])) && text[i - 1] == probel)
+                    //{
+                    //    text = text.Remove(i - 1, 1);
+                    //    textBox1.Text = text;
+                    //}
+
+                    //if ((text[i] == '«' || text[i] == '„' || skobki1.Contains(text[i])) && text[i + 1] == probel && (text[i] == '»' || text[i] == '“' || skobki2.Contains(text[i])) && text[i - 1] == probel)
+                    //{
+                    //    text = text.Remove(i - 1, 1);
+                    //    text = text.Remove(i + 1, 1);
+                    //    textBox1.Text = text;
+                    //}
+
+                    
+                }
+
+                char hyphen = '-';
+
+                if (checkboxpravil4.Checked)
+                {
+                    for (int i = 1; i < text.Length - 1; i++)
+                    {
+                        if (text[i] == hyphen && text[i - 1] == probel && Char.IsLetterOrDigit(text[i + 1]))
+                        {
+                            text = text.Remove(i - 1, 1);
+                            textBox1.Text = text;
+                        }
+
+                        if (text[i] == hyphen && text[i + 1] == probel && Char.IsLetterOrDigit(text[i - 1]))
+                        {
+                            text = text.Remove(i + 1, 1);
+                            textBox1.Text = text;
+                        }
+
+                        if (text[i] == hyphen && text[i - 1] == probel && text[i + 1] == probel)
+                        {
+                            text = text.Remove(i - 1, 1);
+                            text = text.Remove(i, 1);
+                            textBox1.Text = text;
+                        }
+
                     }
                 }
-            }
-            if (checkboxpravil7.Checked)
-            {
-                Dictionary<string, string> Dictionar = new Dictionary<string, string>()
+
+                if (checkboxpravil3.Checked)
+                {
+                    for (int i = 1; i <= text.Length - 1; i++)
+                    {
+                        if (text[i] == probel && Char.IsLetterOrDigit(text[i + 1]))
+                        {
+                            textBox1.Text = textBox1.Text.Replace('-', '—');
+                        }
+                        if (Char.IsLetterOrDigit(text[i]) && text[i - 1] == '-')
+                        {
+                            textBox1.Text = textBox1.Text.Replace("-", "-");
+                        }
+
+                        if (textBox1.Text[0] == '-')
+                        {
+                            textBox1.Text = textBox1.Text.Replace("-", "_");
+                        }
+                    }
+                }
+
+                if (checkboxpravil5.Checked)
+                {
+                    if (textBox1.Text.Contains("?"))
+                    {
+                        textBox1.Text = textBox1.Text.Replace("?", "¿");
+                    }
+                    if (textBox1.Text.Contains("!?"))
+                    {
+                        textBox1.Text = textBox1.Text.Replace("!?", "?!");
+                    }
+                }
+
+                if (checkboxpravil6.Checked)
+                {
+                    if (textBox1.Text.Contains("c") || textBox1.Text.Contains("C"))
+                    {
+                        textBox1.Text = textBox1.Text.Replace("c", "с");
+                        textBox1.Text = textBox1.Text.Replace("C", "С");
+                    }
+                }
+
+                if (checkboxpravil2.Checked)
+                {
+                    for (int i = 1; i <= text.Length - 2; i++)
+                    {
+                        if (text[i + 1] == probel && text[i - 1] == probel && Char.IsDigit(text[i + 2]) && Char.IsDigit(text[i - 2]))
+                        {
+                            textBox1.Text = textBox1.Text.Replace('-', '−');
+                        }
+
+                        if (Char.IsDigit(text[i + 1]) && Char.IsDigit(text[i - 1]) && (text[i] == hyphen || text[i] == '−'))
+                        {
+                            textBox1.Text = textBox1.Text.Replace('-', '−');
+                            text = text.Insert(i, " ");
+                            text = text.Insert(i + 2, " ");
+                            textBox1.Text = text;
+                        }
+
+                        if (text[i + 1] == probel && Char.IsDigit(text[i - 1]) && Char.IsDigit(text[i + 2]))
+                        {
+                            textBox1.Text = textBox1.Text.Replace('-', '−');
+                            text = text.Insert(i, " ");
+                            textBox1.Text = text;
+
+                        }
+                        if (text[i - 1] == probel && Char.IsDigit(text[i + 1]) && Char.IsDigit(text[i - 2]))
+                        {
+                            textBox1.Text = textBox1.Text.Replace('-', '−');
+                            text = text.Insert(i + 2, " ");
+                            textBox1.Text = text;
+                        }
+                    }
+                }
+                if (checkboxpravil7.Checked)
+                {
+                    Dictionary<string, string> Dictionar = new Dictionary<string, string>()
             {
                 { "Ты", "Вы"},
                 { "Тебе", "Вам"},
@@ -315,8 +269,9 @@ namespace Typograf
                   {   "Парень", "Сударь"},
                    { "Девушки", "Барышни"}
             };
-                string result = Dictionar.Aggregate(text, (s, kvp) => s.Replace(kvp.Key, kvp.Value));
-                textBox1.Text = result;
+                    string result = Dictionar.Aggregate(text, (s, kvp) => s.Replace(kvp.Key, kvp.Value));
+                    textBox1.Text = result;
+                }
             }
         }
     }
