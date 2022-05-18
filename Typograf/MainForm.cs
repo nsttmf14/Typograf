@@ -80,6 +80,20 @@ namespace Typograf
             }
         }
 
+        public static string Fiverule(string text)
+        {
+            if (text.Contains("?"))
+            {
+               return text.Replace("?", "¿");
+            }
+            if (text.Contains("!?"))
+            {
+                return text.Replace("!?", "?!");
+            }
+
+            return text;
+        }
+        
         private void button1_Click(object sender, EventArgs e)
         {
             string text = textBox1.Text;
@@ -200,14 +214,7 @@ namespace Typograf
 
                 if (checkboxpravil5.Checked)
                 {
-                    if (textBox1.Text.Contains("?"))
-                    {
-                        textBox1.Text = textBox1.Text.Replace("?", "¿");
-                    }
-                    if (textBox1.Text.Contains("!?"))
-                    {
-                        textBox1.Text = textBox1.Text.Replace("!?", "?!");
-                    }
+                    textBox1.Text = Fiverule(textBox1.Text);
                 }
 
                 if (checkboxpravil6.Checked)
