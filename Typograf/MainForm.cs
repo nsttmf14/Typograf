@@ -2,15 +2,11 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace Typograf
 {
-    enum State
-    {
-        letter, coma, dash, space, hyphen
-    }
-
     public partial class MainForm : Form
     {
         public MainForm()
@@ -80,20 +76,111 @@ namespace Typograf
             }
         }
 
+        public static string TwoRule(string text)
+        {
+            char hyphen = '-';
+            char probel = ' ';
+            for (int i = 1; i <= text.Length - 2; i++)
+            {
+                if (text[i + 1] == probel && text[i - 1] == probel && Char.IsDigit(text[i + 2]) && Char.IsDigit(text[i - 2]))
+                {
+                    text = text.Replace('-', '−');
+                }
+
+                if (Char.IsDigit(text[i + 1]) && Char.IsDigit(text[i - 1]) && (text[i] == hyphen || text[i] == '−'))
+                {
+                    text = text.Insert(i, " ");
+                    text = text.Insert(i + 2, " ");
+                    text = text.Replace('-', '−');
+                }
+
+                if (text[i + 1] == probel && Char.IsDigit(text[i - 1]) && Char.IsDigit(text[i + 2]))
+                {
+                    text = text.Insert(i, " ");
+                    text = text.Replace('-', '−');
+                }
+                if (text[i - 1] == probel && Char.IsDigit(text[i + 1]) && Char.IsDigit(text[i - 2]))
+                {
+                    text = text.Insert(i + 1, " ");
+                    text = text.Replace('-', '−');
+                }
+            }
+            return text;
+        }
+
+        public static string ThreeRule(string text)
+        {
+            char probel = ' ';
+
+            for (int i = 1; i <= text.Length - 1; i++)
+            {
+                if (text[i - 1] == probel && text[i + 1] == probel && text[i] == '-')
+                {
+                    text = text.Replace('-', '—');
+                }
+                if (Char.IsLetterOrDigit(text[i]) && text[i - 1] == '-')
+                {
+                    text = text.Replace("-", "-");
+                }
+
+                if (text[0] == '-')
+                {
+                    text = text.Replace("-", "–");
+                }
+            }
+            return text;
+        }
+
+        public static string FourRule(string text)
+        {
+            char hyphen = '-';
+            char probel = ' ';
+
+            for (int i = 1; i < text.Length - 1; i++)
+            {
+                if (text[i] == hyphen && text[i - 1] == probel && Char.IsLetterOrDigit(text[i + 1]))
+                {
+                    text = text.Remove(i - 1, 1);
+                }
+
+                if (text[i] == hyphen && text[i + 1] == probel && Char.IsLetterOrDigit(text[i - 1]))
+                {
+                    text = text.Remove(i + 1, 1);
+                }
+
+                if (text[i] == hyphen && text[i - 1] == probel && text[i + 1] == probel)
+                {
+                    text = text.Remove(i - 1, 1);
+                    text = text.Remove(i, 1);
+                }
+            }
+            return text;
+        }
+
         public static string Fiverule(string text)
         {
             if (text.Contains("?"))
             {
-               return text.Replace("?", "¿");
+                text = text.Replace("?", "¿");
             }
             if (text.Contains("!?"))
             {
-                return text.Replace("!?", "?!");
+                text = text.Replace("!?", "?!");
             }
 
             return text;
         }
-        
+
+        public static string SixRule(string text)
+        {
+            if (text.Contains("c") || text.Contains("C"))
+            {
+                text = text.Replace("c", "с");
+                text = text.Replace("C", "С");
+            }
+            return text;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             string text = textBox1.Text;
@@ -139,8 +226,8 @@ namespace Typograf
                         textBox1.Text = text;
                     }
                     */
-                    char[] skobki1 = { '{', '[', '(' }; 
-                    char[] skobki2= { '}', ']', ')' };
+                    char[] skobki1 = { '{', '[', '(' };
+                    char[] skobki2 = { '}', ']', ')' };
 
                     if ((text[i] == '«' || text[i] == '"' || skobki1.Contains(text[i])) && text[i + 1] == probel)
                     {
@@ -161,124 +248,44 @@ namespace Typograf
                     //    textBox1.Text = text;
                     //}
 
-                    
+
                 }
 
-                char hyphen = '-';
 
-                if (checkboxpravil4.Checked)
-                {
-                    for (int i = 1; i < text.Length - 1; i++)
-                    {
-                        if (text[i] == hyphen && text[i - 1] == probel && Char.IsLetterOrDigit(text[i + 1]))
-                        {
-                            text = text.Remove(i - 1, 1);
-                            textBox1.Text = text;
-                        }
+            }
 
-                        if (text[i] == hyphen && text[i + 1] == probel && Char.IsLetterOrDigit(text[i - 1]))
-                        {
-                            text = text.Remove(i + 1, 1);
-                            textBox1.Text = text;
-                        }
-
-                        if (text[i] == hyphen && text[i - 1] == probel && text[i + 1] == probel)
-                        {
-                            text = text.Remove(i - 1, 1);
-                            text = text.Remove(i, 1);
-                            textBox1.Text = text;
-                        }
-
-                    }
-                }
-
-                if (checkboxpravil3.Checked)
-                {
-                    for (int i = 1; i <= text.Length - 1; i++)
-                    {
-                        if (text[i] == probel && Char.IsLetterOrDigit(text[i + 1]))
-                        {
-                            textBox1.Text = textBox1.Text.Replace('-', '—');
-                        }
-                        if (Char.IsLetterOrDigit(text[i]) && text[i - 1] == '-')
-                        {
-                            textBox1.Text = textBox1.Text.Replace("-", "-");
-                        }
-
-                        if (textBox1.Text[0] == '-')
-                        {
-                            textBox1.Text = textBox1.Text.Replace("-", "_");
-                        }
-                    }
-                }
-
-                if (checkboxpravil5.Checked)
-                {
-                    textBox1.Text = Fiverule(textBox1.Text);
-                }
-
-                if (checkboxpravil6.Checked)
-                {
-                    if (textBox1.Text.Contains("c") || textBox1.Text.Contains("C"))
-                    {
-                        textBox1.Text = textBox1.Text.Replace("c", "с");
-                        textBox1.Text = textBox1.Text.Replace("C", "С");
-                    }
-                }
-
-                if (checkboxpravil2.Checked)
-                {
-                    for (int i = 1; i <= text.Length - 2; i++)
-                    {
-                        if (text[i + 1] == probel && text[i - 1] == probel && Char.IsDigit(text[i + 2]) && Char.IsDigit(text[i - 2]))
-                        {
-                            textBox1.Text = textBox1.Text.Replace('-', '−');
-                        }
-
-                        if (Char.IsDigit(text[i + 1]) && Char.IsDigit(text[i - 1]) && (text[i] == hyphen || text[i] == '−'))
-                        {
-                            textBox1.Text = textBox1.Text.Replace('-', '−');
-                            text = text.Insert(i, " ");
-                            text = text.Insert(i + 2, " ");
-                            textBox1.Text = text;
-                        }
-
-                        if (text[i + 1] == probel && Char.IsDigit(text[i - 1]) && Char.IsDigit(text[i + 2]))
-                        {
-                            textBox1.Text = textBox1.Text.Replace('-', '−');
-                            text = text.Insert(i, " ");
-                            textBox1.Text = text;
-
-                        }
-                        if (text[i - 1] == probel && Char.IsDigit(text[i + 1]) && Char.IsDigit(text[i - 2]))
-                        {
-                            textBox1.Text = textBox1.Text.Replace('-', '−');
-                            text = text.Insert(i + 2, " ");
-                            textBox1.Text = text;
-                        }
-                    }
-                }
-                if (checkboxpravil7.Checked)
-                {
-                    Dictionary<string, string> Dictionar = new Dictionary<string, string>()
+            if (checkboxpravil4.Checked)
             {
-                { "Ты", "Вы"},
-                { "Тебе", "Вам"},
-                { "Привет", "Приветствую"},
-                { "Пока", "До свидания"},
-                   { "Девушка", "Барышня"},
-                  {  "Девушке", "Барышне"},
-                  {  "Парню", "Сударю"},
-                   { "Парни", "Судари"},
-                    { "Парней", "Сударей"},
-                    { "Нет", "Я вынужден отказаться"},
-                   {  "Девушек", "Барышень"},
-                  {   "Парень", "Сударь"},
-                   { "Девушки", "Барышни"}
-            };
-                    string result = Dictionar.Aggregate(text, (s, kvp) => s.Replace(kvp.Key, kvp.Value));
-                    textBox1.Text = result;
-                }
+                textBox1.Text = FourRule(text);
+            }
+
+            if (checkboxpravil3.Checked)
+            {
+                textBox1.Text = ThreeRule(text);
+            }
+
+            if (checkboxpravil5.Checked)
+            {
+                textBox1.Text = Fiverule(text);
+            }
+
+            if (checkboxpravil6.Checked)
+            {
+                textBox1.Text = SixRule(text);
+            }
+
+            if (checkboxpravil2.Checked)
+            {
+                textBox1.Text = TwoRule(text);
+            }
+
+            if (checkboxpravil7.Checked)
+            {
+                Dictionary<string, string> Dictionar = File.ReadAllLines(@".\star.txt")
+            .Select(x => Regex.Match(x, @"([\p{Lu}\p{Ll}]+)\s*(\d+)"))
+            .ToDictionary(x => x.Groups[1].Value, x => x.Groups[2].Value);
+                string result = Dictionar.Aggregate(text, (s, kvp) => s.Replace(kvp.Key, kvp.Value));
+                textBox1.Text = result;
             }
         }
     }
