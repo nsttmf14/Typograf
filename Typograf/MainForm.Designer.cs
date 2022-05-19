@@ -32,8 +32,9 @@ namespace Typograf
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.typografpage = new System.Windows.Forms.TabPage();
+            this.shriftbutton = new System.Windows.Forms.Button();
             this.buttonsave = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonott = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.typograflabel = new System.Windows.Forms.Label();
             this.propertiespage = new System.Windows.Forms.TabPage();
@@ -70,8 +71,9 @@ namespace Typograf
             // typografpage
             // 
             this.typografpage.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.typografpage.Controls.Add(this.shriftbutton);
             this.typografpage.Controls.Add(this.buttonsave);
-            this.typografpage.Controls.Add(this.button1);
+            this.typografpage.Controls.Add(this.buttonott);
             this.typografpage.Controls.Add(this.textBox1);
             this.typografpage.Controls.Add(this.typograflabel);
             this.typografpage.Location = new System.Drawing.Point(4, 29);
@@ -81,9 +83,19 @@ namespace Typograf
             this.typografpage.TabIndex = 0;
             this.typografpage.Text = "Типограф";
             // 
+            // shriftbutton
+            // 
+            this.shriftbutton.Location = new System.Drawing.Point(1367, 841);
+            this.shriftbutton.Name = "shriftbutton";
+            this.shriftbutton.Size = new System.Drawing.Size(304, 61);
+            this.shriftbutton.TabIndex = 4;
+            this.shriftbutton.Text = "Поменять шрифт";
+            this.shriftbutton.UseVisualStyleBackColor = true;
+            this.shriftbutton.Click += new System.EventHandler(this.shriftbutton_Click);
+            // 
             // buttonsave
             // 
-            this.buttonsave.Location = new System.Drawing.Point(1032, 841);
+            this.buttonsave.Location = new System.Drawing.Point(783, 841);
             this.buttonsave.Name = "buttonsave";
             this.buttonsave.Size = new System.Drawing.Size(304, 61);
             this.buttonsave.TabIndex = 3;
@@ -91,19 +103,19 @@ namespace Typograf
             this.buttonsave.UseVisualStyleBackColor = true;
             this.buttonsave.Click += new System.EventHandler(this.buttonsave_Click);
             // 
-            // button1
+            // buttonott
             // 
-            this.button1.Location = new System.Drawing.Point(544, 841);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(304, 61);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Отипогрфировать";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonott.Location = new System.Drawing.Point(187, 841);
+            this.buttonott.Name = "buttonott";
+            this.buttonott.Size = new System.Drawing.Size(304, 61);
+            this.buttonott.TabIndex = 2;
+            this.buttonott.Text = "Отипогрфировать";
+            this.buttonott.UseVisualStyleBackColor = true;
+            this.buttonott.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(72, 151);
+            this.textBox1.Location = new System.Drawing.Point(72, 150);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(1752, 654);
@@ -113,7 +125,7 @@ namespace Typograf
             // 
             this.typograflabel.AutoSize = true;
             this.typograflabel.Font = new System.Drawing.Font("MS Gothic", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.typograflabel.Location = new System.Drawing.Point(648, 36);
+            this.typograflabel.Location = new System.Drawing.Point(648, 47);
             this.typograflabel.Name = "typograflabel";
             this.typograflabel.Size = new System.Drawing.Size(480, 56);
             this.typograflabel.TabIndex = 0;
@@ -321,7 +333,7 @@ namespace Typograf
         private System.Windows.Forms.TabPage propertiespage;
         private System.Windows.Forms.Label typograflabel;
         private System.Windows.Forms.Button buttonsave;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonott;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label7pravil;
         private System.Windows.Forms.Label label6pravil;
@@ -338,6 +350,7 @@ namespace Typograf
         private System.Windows.Forms.CheckBox checkboxpravil3;
         private System.Windows.Forms.CheckBox checkboxpravil2;
         private System.Windows.Forms.CheckBox checkboxpravil1;
+        private System.Windows.Forms.Button shriftbutton;
     }
 }
 

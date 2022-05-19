@@ -76,6 +76,79 @@ namespace Typograf
             }
         }
 
+        public static string OneRule(string text)
+        {
+            char probel = ' ';
+            char[] arr = { '.', ',', '-', ':', ';', '?', '!' };
+            for (int i = 0; i < text.Length - 1; i++)
+            {
+                if (arr.Contains((text[i])))
+                {
+                    if (text[i - 1] == probel && text[i + 1] == probel)
+                    {
+                        text = text.Remove(i - 1, 1);
+                    }
+
+                    if (Char.IsLetterOrDigit(text[i + 1]) && text[i - 1] == probel)
+                    {
+                        text = text.Insert(i + 1, " ");
+                        text = text.Remove(i - 1, 1);
+                    }
+                }
+
+                //if (text[i] == '—')
+                //{
+                //    {
+                //if (Char.IsLetterOrDigit(text[i]) && Char.IsLetterOrDigit(text[i + 2]))
+                //{
+                //    text = text.Insert(i - 1, " ");
+                //    text = text.Insert(i, " ");
+                //    textBox1.Text = text;
+                //}
+
+                if (text[i] == '—' && Char.IsLetterOrDigit(text[i - 1]) && Char.IsLetterOrDigit(text[i + 1]))
+                {
+                    text = text.Insert(i - 1, " ");
+                    text = text.Insert(i, " ");
+                }
+
+                //if (Char.IsLetterOrDigit(text[i-1]) && text[i+1] == probel)
+                //{
+                //    text = text.Insert(i-1, " ");
+                //    textBox1.Text = text;
+                //}
+
+                if (text[i] == '—' && text[i - 1] == probel && Char.IsLetterOrDigit(text[i + 1]))
+                {
+                    text = text.Insert(i + 1, " ");
+                }
+
+                //if (text[i + 1] == probel && Char.IsLetterOrDigit(text[i - 1]))
+                //{
+                //    text = text.Insert(i - 1, " ");
+                //    textBox1.Text = text;
+                //}
+                //    }
+                //}
+
+                char[] skobki1 = { '{', '[', '(' };
+                char[] skobki2 = { '}', ']', ')' };
+
+
+
+                if ((text[i] == '«' || text[i] == '„' || skobki1.Contains(text[i])) && text[i + 1] == probel)
+                {
+                    text = text.Remove(i + 1, 1);
+                }
+
+                if ((text[i + 1] == '”' || text[i + 1] == '»' || skobki2.Contains(text[i + 1])) && text[i] == probel)
+                {
+                    text = text.Remove(i, 1);
+                }
+            }
+            return text;
+        }
+
         public static string TwoRule(string text)
         {
             char hyphen = '-';
@@ -184,74 +257,10 @@ namespace Typograf
         private void button1_Click(object sender, EventArgs e)
         {
             string text = textBox1.Text;
-            char probel = ' ';
-            char[] arr = { '.', ',', '-', ':', ';', '?', '!' };
-
+            
             if (checkboxpravil1.Checked)
             {
-                for (int i = 0; i < text.Length - 1; i++)
-                {
-                    if (arr.Contains((text[i])))
-                    {
-                        if (text[i - 1] == probel && text[i + 1] == probel)
-                        {
-                            text = text.Remove(i - 1, 1);
-                            textBox1.Text = text;
-                        }
-
-                        if (Char.IsLetterOrDigit(text[i + 1]) && text[i - 1] == probel)
-                        {
-                            text = text.Insert(i + 1, " ");
-                            text = text.Remove(i - 1, 1);
-                            textBox1.Text = text;
-                        }
-                    }
-
-                    /*if (text[i]== '—' && Char.IsLetterOrDigit(text[i-1]) && Char.IsLetterOrDigit(text[i + 1]))
-                    {
-                        text = text.Insert(i + 1 , " ");
-                        text = text.Insert(i - 1 , " ");
-                        textBox1.Text = text;
-                    }
-
-                    if (text[i] == '—' && Char.IsLetterOrDigit(text[i - 1]) && text[i + 1] == probel)
-                    {
-                        text = text.Insert(i - 1, " ");
-                        textBox1.Text = text;
-                    }
-
-                    if (text[i] == '—' && text[i-1]==probel && Char.IsLetterOrDigit(text[i + 1]))
-                    {
-                        text = text.Insert(i + 1, " ");
-                        textBox1.Text = text;
-                    }
-                    */
-                    char[] skobki1 = { '{', '[', '(' };
-                    char[] skobki2 = { '}', ']', ')' };
-
-                    if ((text[i] == '«' || text[i] == '"' || skobki1.Contains(text[i])) && text[i + 1] == probel)
-                    {
-                        text = text.Remove(i + 1, 1);
-                        textBox1.Text = text;
-                    }
-
-                    //if ((text[i] == '»' || text[i] == '"' || skobki2.Contains(text[i])) && text[i - 1] == probel)
-                    //{
-                    //    text = text.Remove(i - 1, 1);
-                    //    textBox1.Text = text;
-                    //}
-
-                    //if ((text[i] == '«' || text[i] == '„' || skobki1.Contains(text[i])) && text[i + 1] == probel && (text[i] == '»' || text[i] == '“' || skobki2.Contains(text[i])) && text[i - 1] == probel)
-                    //{
-                    //    text = text.Remove(i - 1, 1);
-                    //    text = text.Remove(i + 1, 1);
-                    //    textBox1.Text = text;
-                    //}
-
-
-                }
-
-
+                textBox1.Text = OneRule(text);
             }
 
             if (checkboxpravil4.Checked)
@@ -286,6 +295,34 @@ namespace Typograf
             .ToDictionary(x => x.Groups[1].Value, x => x.Groups[2].Value);
                 string result = Dictionar.Aggregate(text, (s, kvp) => s.Replace(kvp.Key, kvp.Value));
                 textBox1.Text = result;
+            }
+        }
+
+        private void shriftbutton_Click(object sender, EventArgs e)
+        {
+            FontDialog fd = new FontDialog();
+            if (fd.ShowDialog() == DialogResult.OK)
+            {
+                typograflabel.Font = fd.Font;
+                textBox1.Font = fd.Font;
+                label1pravil.Font = fd.Font;
+                label2pravil.Font = fd.Font;
+                label3pravil.Font = fd.Font;
+                label4pravil.Font = fd.Font;
+                label5pravil.Font = fd.Font;
+                label6pravil.Font = fd.Font;
+                label7pravil.Font = fd.Font;
+                label3.Font = fd.Font;
+                checkboxpravil1.Font = fd.Font;
+                checkboxpravil2.Font = fd.Font;
+                checkboxpravil3.Font = fd.Font;
+                checkboxpravil4.Font = fd.Font;
+                checkboxpravil5.Font = fd.Font;
+                checkboxpravil6.Font = fd.Font;
+                checkboxpravil7.Font = fd.Font;
+                buttonott.Font = fd.Font;
+                buttonsave.Font = fd.Font;
+                shriftbutton.Font = fd.Font;
             }
         }
     }
