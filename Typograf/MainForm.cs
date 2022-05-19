@@ -96,45 +96,27 @@ namespace Typograf
                     }
                 }
 
-                //if (text[i] == '—')
-                //{
-                //    {
-                //if (Char.IsLetterOrDigit(text[i]) && Char.IsLetterOrDigit(text[i + 2]))
-                //{
-                //    text = text.Insert(i - 1, " ");
-                //    text = text.Insert(i, " ");
-                //    textBox1.Text = text;
-                //}
-
-                if (text[i] == '—' && Char.IsLetterOrDigit(text[i - 1]) && Char.IsLetterOrDigit(text[i + 1]))
+                if (text[i] == '—')
                 {
-                    text = text.Insert(i - 1, " ");
-                    text = text.Insert(i, " ");
+                    if (text[i - 1] == probel && Char.IsLetterOrDigit(text[i + 1]))
+                    {
+                        text = text.Insert(i + 1, " ");
+                    }
+
+                    if (text[i + 1] == probel && Char.IsLetterOrDigit(text[i - 1]))
+                    {
+                        text = text.Insert(i, " ");
+                    }
+
+                    if ( Char.IsLetterOrDigit(text[i + 1]) && Char.IsLetterOrDigit(text[i-1]))
+                    {
+                        text = text.Insert(i + 1, " ");
+                        text = text.Insert(i, " ");
+                    }
                 }
-
-                //if (Char.IsLetterOrDigit(text[i-1]) && text[i+1] == probel)
-                //{
-                //    text = text.Insert(i-1, " ");
-                //    textBox1.Text = text;
-                //}
-
-                if (text[i] == '—' && text[i - 1] == probel && Char.IsLetterOrDigit(text[i + 1]))
-                {
-                    text = text.Insert(i + 1, " ");
-                }
-
-                //if (text[i + 1] == probel && Char.IsLetterOrDigit(text[i - 1]))
-                //{
-                //    text = text.Insert(i - 1, " ");
-                //    textBox1.Text = text;
-                //}
-                //    }
-                //}
 
                 char[] skobki1 = { '{', '[', '(' };
                 char[] skobki2 = { '}', ']', ')' };
-
-
 
                 if ((text[i] == '«' || text[i] == '„' || skobki1.Contains(text[i])) && text[i + 1] == probel)
                 {
