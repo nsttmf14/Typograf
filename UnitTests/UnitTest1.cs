@@ -142,5 +142,55 @@ namespace UnitTests
             string result = MainForm.ThreeRule(text);
             Assert.AreEqual(expected, result);
         }
+
+        [TestMethod]
+        public void Test1rulefirsttest()
+        {
+            var mf = new MainForm();
+            string text = "Я не мог отвести взгляд от девушки ,и она улыбалась мне в ответ";
+            string expected = "Я не мог отвести взгляд от девушки, и она улыбалась мне в ответ";
+            string result = MainForm.OneRule(text);
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        public void Test1rulesecondtest()
+        {
+            var mf = new MainForm();
+            string text = "Пора вставать ! Хватит отдыхать!";
+            string expected = "Пора вставать! Хватит отдыхать!";
+            string result = MainForm.OneRule(text);
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        public void Test1rulethirdtest()
+        {
+            var mf = new MainForm();
+            string text = "« Я буду искать клад один »";
+            string expected = "«Я буду искать клад один»";
+            string result = MainForm.OneRule(text);
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        public void Test1ruleforthtest()
+        {
+            var mf = new MainForm();
+            string text = "В то вре­мя ( это было боль­ше года назад ) Вера не была ещё зна­ко­ма с соседями.";
+            string expected = "В то вре­мя (это было боль­ше года назад) Вера не была ещё зна­ко­ма с соседями.";
+            string result = MainForm.OneRule(text);
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        public void Test1rulefifthtest()
+        {
+            var mf = new MainForm();
+            string text = "среднее тире—удерживая Alt, наберите на цифровой клавиатуре справа 0150, затем отпустите Alt";
+            string expected = "среднее тире — удерживая Alt, наберите на цифровой клавиатуре справа 0150, затем отпустите Alt";
+            string result = MainForm.OneRule(text);
+            Assert.AreEqual(expected, result);
+        }
     }
 }

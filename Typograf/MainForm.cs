@@ -94,6 +94,11 @@ namespace Typograf
                         text = text.Insert(i + 1, " ");
                         text = text.Remove(i - 1, 1);
                     }
+
+                    if (text[i - 1] == probel && text[i+1]==' ')
+                    {
+                        text = text.Remove(i - 1, 1);
+                    }
                 }
 
                 if (text[i] == '—')
