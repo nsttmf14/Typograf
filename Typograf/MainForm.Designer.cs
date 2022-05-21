@@ -37,31 +37,28 @@ namespace Typograf
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.typograflabel = new System.Windows.Forms.Label();
-            this.propertiespage = new System.Windows.Forms.TabPage();
-            this.checkboxpravil7 = new System.Windows.Forms.CheckBox();
-            this.checkboxpravil6 = new System.Windows.Forms.CheckBox();
-            this.checkboxpravil5 = new System.Windows.Forms.CheckBox();
-            this.checkboxpravil4 = new System.Windows.Forms.CheckBox();
-            this.checkboxpravil3 = new System.Windows.Forms.CheckBox();
-            this.checkboxpravil2 = new System.Windows.Forms.CheckBox();
-            this.checkboxpravil1 = new System.Windows.Forms.CheckBox();
-            this.label7pravil = new System.Windows.Forms.Label();
-            this.label6pravil = new System.Windows.Forms.Label();
-            this.label5pravil = new System.Windows.Forms.Label();
-            this.label4pravil = new System.Windows.Forms.Label();
-            this.label3pravil = new System.Windows.Forms.Label();
-            this.label2pravil = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.checkboxpravil1 = new System.Windows.Forms.CheckBox();
             this.label1pravil = new System.Windows.Forms.Label();
+            this.checkboxpravil2 = new System.Windows.Forms.CheckBox();
+            this.label2pravil = new System.Windows.Forms.Label();
+            this.checkboxpravil3 = new System.Windows.Forms.CheckBox();
+            this.label3pravil = new System.Windows.Forms.Label();
+            this.checkboxpravil4 = new System.Windows.Forms.CheckBox();
+            this.label4pravil = new System.Windows.Forms.Label();
+            this.checkboxpravil5 = new System.Windows.Forms.CheckBox();
+            this.label5pravil = new System.Windows.Forms.Label();
+            this.checkboxpravil6 = new System.Windows.Forms.CheckBox();
+            this.label6pravil = new System.Windows.Forms.Label();
+            this.checkboxpravil7 = new System.Windows.Forms.CheckBox();
+            this.label7pravil = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.typografpage.SuspendLayout();
-            this.propertiespage.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.typografpage);
-            this.tabControl1.Controls.Add(this.propertiespage);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
@@ -72,6 +69,21 @@ namespace Typograf
             // typografpage
             // 
             this.typografpage.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.typografpage.Controls.Add(this.label7pravil);
+            this.typografpage.Controls.Add(this.checkboxpravil7);
+            this.typografpage.Controls.Add(this.label6pravil);
+            this.typografpage.Controls.Add(this.checkboxpravil6);
+            this.typografpage.Controls.Add(this.label5pravil);
+            this.typografpage.Controls.Add(this.checkboxpravil5);
+            this.typografpage.Controls.Add(this.label4pravil);
+            this.typografpage.Controls.Add(this.checkboxpravil4);
+            this.typografpage.Controls.Add(this.label3pravil);
+            this.typografpage.Controls.Add(this.checkboxpravil3);
+            this.typografpage.Controls.Add(this.label2pravil);
+            this.typografpage.Controls.Add(this.checkboxpravil2);
+            this.typografpage.Controls.Add(this.label1pravil);
+            this.typografpage.Controls.Add(this.checkboxpravil1);
+            this.typografpage.Controls.Add(this.label3);
             this.typografpage.Controls.Add(this.shriftbutton);
             this.typografpage.Controls.Add(this.buttonsave);
             this.typografpage.Controls.Add(this.button1);
@@ -120,11 +132,11 @@ namespace Typograf
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(48, 97);
+            this.textBox1.Location = new System.Drawing.Point(48, 107);
             this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(1169, 426);
+            this.textBox1.Size = new System.Drawing.Size(649, 395);
             this.textBox1.TabIndex = 1;
             // 
             // typograflabel
@@ -139,196 +151,177 @@ namespace Typograf
             this.typograflabel.Text = "Типограф";
             this.typograflabel.Click += new System.EventHandler(this.typograflabel_Click);
             // 
-            // propertiespage
+            // label3
             // 
-            this.propertiespage.BackgroundImage = global::Typograf.Properties.Resources._1613395175_156_p_bezhevii_fon_odnotonnii_estetika_174;
-            this.propertiespage.Controls.Add(this.checkboxpravil7);
-            this.propertiespage.Controls.Add(this.checkboxpravil6);
-            this.propertiespage.Controls.Add(this.checkboxpravil5);
-            this.propertiespage.Controls.Add(this.checkboxpravil4);
-            this.propertiespage.Controls.Add(this.checkboxpravil3);
-            this.propertiespage.Controls.Add(this.checkboxpravil2);
-            this.propertiespage.Controls.Add(this.checkboxpravil1);
-            this.propertiespage.Controls.Add(this.label7pravil);
-            this.propertiespage.Controls.Add(this.label6pravil);
-            this.propertiespage.Controls.Add(this.label5pravil);
-            this.propertiespage.Controls.Add(this.label4pravil);
-            this.propertiespage.Controls.Add(this.label3pravil);
-            this.propertiespage.Controls.Add(this.label2pravil);
-            this.propertiespage.Controls.Add(this.label3);
-            this.propertiespage.Controls.Add(this.label1pravil);
-            this.propertiespage.Location = new System.Drawing.Point(4, 22);
-            this.propertiespage.Margin = new System.Windows.Forms.Padding(2);
-            this.propertiespage.Name = "propertiespage";
-            this.propertiespage.Padding = new System.Windows.Forms.Padding(2);
-            this.propertiespage.Size = new System.Drawing.Size(1271, 623);
-            this.propertiespage.TabIndex = 1;
-            this.propertiespage.Text = "Настройки";
-            this.propertiespage.UseVisualStyleBackColor = true;
-            // 
-            // checkboxpravil7
-            // 
-            this.checkboxpravil7.AutoSize = true;
-            this.checkboxpravil7.Location = new System.Drawing.Point(24, 408);
-            this.checkboxpravil7.Margin = new System.Windows.Forms.Padding(2);
-            this.checkboxpravil7.Name = "checkboxpravil7";
-            this.checkboxpravil7.Size = new System.Drawing.Size(73, 17);
-            this.checkboxpravil7.TabIndex = 20;
-            this.checkboxpravil7.Text = "опсурдик";
-            this.checkboxpravil7.UseVisualStyleBackColor = true;
-            // 
-            // checkboxpravil6
-            // 
-            this.checkboxpravil6.AutoSize = true;
-            this.checkboxpravil6.Location = new System.Drawing.Point(24, 350);
-            this.checkboxpravil6.Margin = new System.Windows.Forms.Padding(2);
-            this.checkboxpravil6.Name = "checkboxpravil6";
-            this.checkboxpravil6.Size = new System.Drawing.Size(76, 17);
-            this.checkboxpravil6.TabIndex = 19;
-            this.checkboxpravil6.Text = "русская с";
-            this.checkboxpravil6.UseVisualStyleBackColor = true;
-            // 
-            // checkboxpravil5
-            // 
-            this.checkboxpravil5.AutoSize = true;
-            this.checkboxpravil5.Location = new System.Drawing.Point(24, 290);
-            this.checkboxpravil5.Margin = new System.Windows.Forms.Padding(2);
-            this.checkboxpravil5.Name = "checkboxpravil5";
-            this.checkboxpravil5.Size = new System.Drawing.Size(32, 17);
-            this.checkboxpravil5.TabIndex = 18;
-            this.checkboxpravil5.Text = "¿";
-            this.checkboxpravil5.UseVisualStyleBackColor = true;
-            // 
-            // checkboxpravil4
-            // 
-            this.checkboxpravil4.AutoSize = true;
-            this.checkboxpravil4.Location = new System.Drawing.Point(24, 229);
-            this.checkboxpravil4.Margin = new System.Windows.Forms.Padding(2);
-            this.checkboxpravil4.Name = "checkboxpravil4";
-            this.checkboxpravil4.Size = new System.Drawing.Size(29, 17);
-            this.checkboxpravil4.TabIndex = 17;
-            this.checkboxpravil4.Text = "-";
-            this.checkboxpravil4.UseVisualStyleBackColor = true;
-            // 
-            // checkboxpravil3
-            // 
-            this.checkboxpravil3.AutoSize = true;
-            this.checkboxpravil3.Location = new System.Drawing.Point(24, 166);
-            this.checkboxpravil3.Margin = new System.Windows.Forms.Padding(2);
-            this.checkboxpravil3.Name = "checkboxpravil3";
-            this.checkboxpravil3.Size = new System.Drawing.Size(32, 17);
-            this.checkboxpravil3.TabIndex = 16;
-            this.checkboxpravil3.Text = "—";
-            this.checkboxpravil3.UseVisualStyleBackColor = true;
-            // 
-            // checkboxpravil2
-            // 
-            this.checkboxpravil2.AutoSize = true;
-            this.checkboxpravil2.Location = new System.Drawing.Point(24, 105);
-            this.checkboxpravil2.Margin = new System.Windows.Forms.Padding(2);
-            this.checkboxpravil2.Name = "checkboxpravil2";
-            this.checkboxpravil2.Size = new System.Drawing.Size(32, 17);
-            this.checkboxpravil2.TabIndex = 15;
-            this.checkboxpravil2.Text = "−";
-            this.checkboxpravil2.UseVisualStyleBackColor = true;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(891, 72);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(190, 24);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Свойства настроек:";
             // 
             // checkboxpravil1
             // 
             this.checkboxpravil1.AutoSize = true;
-            this.checkboxpravil1.Location = new System.Drawing.Point(24, 45);
+            this.checkboxpravil1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkboxpravil1.Location = new System.Drawing.Point(776, 138);
             this.checkboxpravil1.Margin = new System.Windows.Forms.Padding(2);
             this.checkboxpravil1.Name = "checkboxpravil1";
-            this.checkboxpravil1.Size = new System.Drawing.Size(50, 17);
-            this.checkboxpravil1.TabIndex = 14;
+            this.checkboxpravil1.Size = new System.Drawing.Size(59, 20);
+            this.checkboxpravil1.TabIndex = 15;
             this.checkboxpravil1.Text = "..., ...";
             this.checkboxpravil1.UseVisualStyleBackColor = true;
-            // 
-            // label7pravil
-            // 
-            this.label7pravil.AutoSize = true;
-            this.label7pravil.Location = new System.Drawing.Point(149, 408);
-            this.label7pravil.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7pravil.Name = "label7pravil";
-            this.label7pravil.Size = new System.Drawing.Size(171, 13);
-            this.label7pravil.TabIndex = 13;
-            this.label7pravil.Text = "идут соревнования по фантазии";
-            this.label7pravil.Click += new System.EventHandler(this.label7pravil_Click);
-            // 
-            // label6pravil
-            // 
-            this.label6pravil.AutoSize = true;
-            this.label6pravil.Location = new System.Drawing.Point(149, 350);
-            this.label6pravil.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6pravil.Name = "label6pravil";
-            this.label6pravil.Size = new System.Drawing.Size(102, 13);
-            this.label6pravil.TabIndex = 11;
-            this.label6pravil.Text = "правило русской с";
-            this.label6pravil.Click += new System.EventHandler(this.label6pravil_Click);
-            // 
-            // label5pravil
-            // 
-            this.label5pravil.AutoSize = true;
-            this.label5pravil.Location = new System.Drawing.Point(149, 290);
-            this.label5pravil.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5pravil.Name = "label5pravil";
-            this.label5pravil.Size = new System.Drawing.Size(173, 13);
-            this.label5pravil.TabIndex = 9;
-            this.label5pravil.Text = "правило вопросительного знака";
-            this.label5pravil.Click += new System.EventHandler(this.label5pravil_Click);
-            // 
-            // label4pravil
-            // 
-            this.label4pravil.AutoSize = true;
-            this.label4pravil.Location = new System.Drawing.Point(149, 229);
-            this.label4pravil.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4pravil.Name = "label4pravil";
-            this.label4pravil.Size = new System.Drawing.Size(90, 13);
-            this.label4pravil.TabIndex = 7;
-            this.label4pravil.Text = "правило дефиса";
-            this.label4pravil.Click += new System.EventHandler(this.label4pravil_Click);
-            // 
-            // label3pravil
-            // 
-            this.label3pravil.AutoSize = true;
-            this.label3pravil.Location = new System.Drawing.Point(149, 166);
-            this.label3pravil.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3pravil.Name = "label3pravil";
-            this.label3pravil.Size = new System.Drawing.Size(75, 13);
-            this.label3pravil.TabIndex = 5;
-            this.label3pravil.Text = "правило тире";
-            this.label3pravil.Click += new System.EventHandler(this.label3pravil_Click);
-            // 
-            // label2pravil
-            // 
-            this.label2pravil.AutoSize = true;
-            this.label2pravil.Location = new System.Drawing.Point(149, 106);
-            this.label2pravil.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2pravil.Name = "label2pravil";
-            this.label2pravil.Size = new System.Drawing.Size(89, 13);
-            this.label2pravil.TabIndex = 3;
-            this.label2pravil.Text = "правило минуса";
-            this.label2pravil.Click += new System.EventHandler(this.label2pravil_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(21, 9);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Свойства настроек:";
             // 
             // label1pravil
             // 
             this.label1pravil.AutoSize = true;
-            this.label1pravil.Location = new System.Drawing.Point(149, 45);
+            this.label1pravil.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1pravil.Location = new System.Drawing.Point(890, 138);
             this.label1pravil.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1pravil.Name = "label1pravil";
-            this.label1pravil.Size = new System.Drawing.Size(151, 13);
-            this.label1pravil.TabIndex = 0;
+            this.label1pravil.Size = new System.Drawing.Size(196, 16);
+            this.label1pravil.TabIndex = 16;
             this.label1pravil.Text = "правило знаков препинания";
-            this.label1pravil.Click += new System.EventHandler(this.label1pravil_Click);
+            // 
+            // checkboxpravil2
+            // 
+            this.checkboxpravil2.AutoSize = true;
+            this.checkboxpravil2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkboxpravil2.Location = new System.Drawing.Point(776, 191);
+            this.checkboxpravil2.Margin = new System.Windows.Forms.Padding(2);
+            this.checkboxpravil2.Name = "checkboxpravil2";
+            this.checkboxpravil2.Size = new System.Drawing.Size(35, 20);
+            this.checkboxpravil2.TabIndex = 17;
+            this.checkboxpravil2.Text = "−";
+            this.checkboxpravil2.UseVisualStyleBackColor = true;
+            // 
+            // label2pravil
+            // 
+            this.label2pravil.AutoSize = true;
+            this.label2pravil.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2pravil.Location = new System.Drawing.Point(890, 192);
+            this.label2pravil.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2pravil.Name = "label2pravil";
+            this.label2pravil.Size = new System.Drawing.Size(115, 16);
+            this.label2pravil.TabIndex = 18;
+            this.label2pravil.Text = "правило минуса";
+            // 
+            // checkboxpravil3
+            // 
+            this.checkboxpravil3.AutoSize = true;
+            this.checkboxpravil3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkboxpravil3.Location = new System.Drawing.Point(774, 251);
+            this.checkboxpravil3.Margin = new System.Windows.Forms.Padding(2);
+            this.checkboxpravil3.Name = "checkboxpravil3";
+            this.checkboxpravil3.Size = new System.Drawing.Size(37, 20);
+            this.checkboxpravil3.TabIndex = 19;
+            this.checkboxpravil3.Text = "—";
+            this.checkboxpravil3.UseVisualStyleBackColor = true;
+            // 
+            // label3pravil
+            // 
+            this.label3pravil.AutoSize = true;
+            this.label3pravil.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3pravil.Location = new System.Drawing.Point(890, 255);
+            this.label3pravil.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3pravil.Name = "label3pravil";
+            this.label3pravil.Size = new System.Drawing.Size(98, 16);
+            this.label3pravil.TabIndex = 20;
+            this.label3pravil.Text = "правило тире";
+            // 
+            // checkboxpravil4
+            // 
+            this.checkboxpravil4.AutoSize = true;
+            this.checkboxpravil4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkboxpravil4.Location = new System.Drawing.Point(774, 307);
+            this.checkboxpravil4.Margin = new System.Windows.Forms.Padding(2);
+            this.checkboxpravil4.Name = "checkboxpravil4";
+            this.checkboxpravil4.Size = new System.Drawing.Size(32, 20);
+            this.checkboxpravil4.TabIndex = 21;
+            this.checkboxpravil4.Text = "-";
+            this.checkboxpravil4.UseVisualStyleBackColor = true;
+            // 
+            // label4pravil
+            // 
+            this.label4pravil.AutoSize = true;
+            this.label4pravil.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4pravil.Location = new System.Drawing.Point(890, 308);
+            this.label4pravil.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4pravil.Name = "label4pravil";
+            this.label4pravil.Size = new System.Drawing.Size(117, 16);
+            this.label4pravil.TabIndex = 22;
+            this.label4pravil.Text = "правило дефиса";
+            // 
+            // checkboxpravil5
+            // 
+            this.checkboxpravil5.AutoSize = true;
+            this.checkboxpravil5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkboxpravil5.Location = new System.Drawing.Point(771, 368);
+            this.checkboxpravil5.Margin = new System.Windows.Forms.Padding(2);
+            this.checkboxpravil5.Name = "checkboxpravil5";
+            this.checkboxpravil5.Size = new System.Drawing.Size(35, 20);
+            this.checkboxpravil5.TabIndex = 23;
+            this.checkboxpravil5.Text = "¿";
+            this.checkboxpravil5.UseVisualStyleBackColor = true;
+            // 
+            // label5pravil
+            // 
+            this.label5pravil.AutoSize = true;
+            this.label5pravil.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5pravil.Location = new System.Drawing.Point(892, 368);
+            this.label5pravil.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5pravil.Name = "label5pravil";
+            this.label5pravil.Size = new System.Drawing.Size(224, 16);
+            this.label5pravil.TabIndex = 24;
+            this.label5pravil.Text = "правило вопросительного знака";
+            // 
+            // checkboxpravil6
+            // 
+            this.checkboxpravil6.AutoSize = true;
+            this.checkboxpravil6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkboxpravil6.Location = new System.Drawing.Point(771, 419);
+            this.checkboxpravil6.Margin = new System.Windows.Forms.Padding(2);
+            this.checkboxpravil6.Name = "checkboxpravil6";
+            this.checkboxpravil6.Size = new System.Drawing.Size(98, 20);
+            this.checkboxpravil6.TabIndex = 25;
+            this.checkboxpravil6.Text = "русская с";
+            this.checkboxpravil6.UseVisualStyleBackColor = true;
+            // 
+            // label6pravil
+            // 
+            this.label6pravil.AutoSize = true;
+            this.label6pravil.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6pravil.Location = new System.Drawing.Point(892, 423);
+            this.label6pravil.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6pravil.Name = "label6pravil";
+            this.label6pravil.Size = new System.Drawing.Size(130, 16);
+            this.label6pravil.TabIndex = 26;
+            this.label6pravil.Text = "правило русской с";
+            // 
+            // checkboxpravil7
+            // 
+            this.checkboxpravil7.AutoSize = true;
+            this.checkboxpravil7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkboxpravil7.Location = new System.Drawing.Point(771, 486);
+            this.checkboxpravil7.Margin = new System.Windows.Forms.Padding(2);
+            this.checkboxpravil7.Name = "checkboxpravil7";
+            this.checkboxpravil7.Size = new System.Drawing.Size(97, 20);
+            this.checkboxpravil7.TabIndex = 27;
+            this.checkboxpravil7.Text = "опсурдик";
+            this.checkboxpravil7.UseVisualStyleBackColor = true;
+            // 
+            // label7pravil
+            // 
+            this.label7pravil.AutoSize = true;
+            this.label7pravil.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7pravil.Location = new System.Drawing.Point(890, 486);
+            this.label7pravil.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7pravil.Name = "label7pravil";
+            this.label7pravil.Size = new System.Drawing.Size(224, 16);
+            this.label7pravil.TabIndex = 28;
+            this.label7pravil.Text = "идут соревнования по фантазии";
             // 
             // MainForm
             // 
@@ -344,8 +337,6 @@ namespace Typograf
             this.tabControl1.ResumeLayout(false);
             this.typografpage.ResumeLayout(false);
             this.typografpage.PerformLayout();
-            this.propertiespage.ResumeLayout(false);
-            this.propertiespage.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -354,27 +345,26 @@ namespace Typograf
 
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage typografpage;
-        private System.Windows.Forms.TabPage propertiespage;
         private System.Windows.Forms.Label typograflabel;
         private System.Windows.Forms.Button buttonsave;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label7pravil;
-        private System.Windows.Forms.Label label6pravil;
-        private System.Windows.Forms.Label label5pravil;
-        private System.Windows.Forms.Label label4pravil;
-        private System.Windows.Forms.Label label3pravil;
-        private System.Windows.Forms.Label label2pravil;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label1pravil;
-        private System.Windows.Forms.CheckBox checkboxpravil7;
-        private System.Windows.Forms.CheckBox checkboxpravil6;
-        private System.Windows.Forms.CheckBox checkboxpravil5;
-        private System.Windows.Forms.CheckBox checkboxpravil4;
-        private System.Windows.Forms.CheckBox checkboxpravil3;
-        private System.Windows.Forms.CheckBox checkboxpravil2;
-        private System.Windows.Forms.CheckBox checkboxpravil1;
         private System.Windows.Forms.Button shriftbutton;
+        private System.Windows.Forms.Label label7pravil;
+        private System.Windows.Forms.CheckBox checkboxpravil7;
+        private System.Windows.Forms.Label label6pravil;
+        private System.Windows.Forms.CheckBox checkboxpravil6;
+        private System.Windows.Forms.Label label5pravil;
+        private System.Windows.Forms.CheckBox checkboxpravil5;
+        private System.Windows.Forms.Label label4pravil;
+        private System.Windows.Forms.CheckBox checkboxpravil4;
+        private System.Windows.Forms.Label label3pravil;
+        private System.Windows.Forms.CheckBox checkboxpravil3;
+        private System.Windows.Forms.Label label2pravil;
+        private System.Windows.Forms.CheckBox checkboxpravil2;
+        private System.Windows.Forms.Label label1pravil;
+        private System.Windows.Forms.CheckBox checkboxpravil1;
+        private System.Windows.Forms.Label label3;
     }
 }
 
