@@ -96,5 +96,8 @@
   <ItemGroup>
     <None Include="Resources\CpQHxRNAUR8VLyhGpl7qZxc1wXpD5yvCgbUnlacj3ECwmCsAlYB8mLPNrj6zQv95mLAo_ILAdemDeGnIh-vnBqkU.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\star.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
