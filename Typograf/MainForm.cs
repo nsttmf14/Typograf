@@ -19,46 +19,6 @@ namespace Typograf
 
         }
 
-        private void typograflabel_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Это инструмент, который приводит текст в соответствие с правилами экранной типографики");
-        }
-
-        private void label2pravil_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Дефис пробелами не отбивается и всегда пишется слитно с частями слова или цифр, которые он разделяет.");
-        }
-
-        private void label1pravil_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Все знаки препинания пишутся слева слитно со словом, а справа отбиваются пробелом. Тире отбивается пробелом с двух сторон. Скобки и кавычки пишутся слитно со словами, которые находятся внутри них.");
-        }
-
-        private void label3pravil_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Везде, где по правилам русского языка должно быть тире, ни в коем случае нельзя писать знак дефис, который по умолчанию доступен на клавиатуре. Символ тире задаётся конструкцией —. Например чтобы получить: «Книга — источник знания», нужно написать «Книга — источник знания».");
-        }
-
-        private void label4pravil_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(" Везде, где в цифрах указывается минус, также нельзя писать знак дефиса, нужно писать знак минуса: − В арифметических конструкциях знаки операций отбиваются пробелом с двух сторон. Например «5 − 4 = 1».");
-        }
-
-        private void label5pravil_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Везде, где по правилам русского языка должен быть вопросительный знак, ни в коем случае нельзя писать вопросительный знак, который по умолчанию доступен на клавиатуре. Символ вопросительный знак задается как ¿ ");
-        }
-
-        private void label6pravil_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Следует всегда использовать букву «с». Неправильно писать вместо неё букву с в английской раскладке");
-        }
-
-        private void label7pravil_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Абсурда пока нет");
-        }
-
         private void buttonsave_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFile1 = new SaveFileDialog
@@ -90,15 +50,15 @@ namespace Typograf
                         text = text.Remove(i - 1, 1);
                     }
 
-                    if (char.IsLetterOrDigit(text[i + 1]) && text[i - 1] == probel)
+                    if ((Char.IsLetterOrDigit(text[i + 1]) || text[i]==probel) && text[i - 1] == probel)
                     {
-                        text = text.Insert(i + 1, " ");
                         text = text.Remove(i - 1, 1);
+                        text = text.Insert(i, " ");
                     }
 
-                    if (text[i - 1] == probel && text[i + 1] == ' ')
+                    if (Char.IsLetterOrDigit(text[i + 1]) && Char.IsLetterOrDigit(text[i - 1]))
                     {
-                        text = text.Remove(i - 1, 1);
+                        text = text.Insert(i, " ");
                     }
                 }
 
@@ -453,42 +413,83 @@ namespace Typograf
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string text = textBox1.Text;
-
             if (checkboxpravil1.Checked)
             {
-                textBox1.Text = OneRule(text);
+                textBox1.Text = OneRule(textBox1.Text);
             }
 
             if (checkboxpravil4.Checked)
             {
-                textBox1.Text = FourRule(text);
+                textBox1.Text = FourRule(textBox1.Text);
             }
 
             if (checkboxpravil3.Checked)
             {
-                textBox1.Text = ThreeRule(text);
+                textBox1.Text = ThreeRule(textBox1.Text);
             }
 
             if (checkboxpravil5.Checked)
             {
-                textBox1.Text = Fiverule(text);
+                textBox1.Text = Fiverule(textBox1.Text);
             }
 
             if (checkboxpravil6.Checked)
             {
-                textBox1.Text = SixRule(text);
+                textBox1.Text = SixRule(textBox1.Text);
             }
 
             if (checkboxpravil2.Checked)
             {
-                textBox1.Text = TwoRule(text);
+                textBox1.Text = TwoRule(textBox1.Text);
             }
 
             if (checkboxpravil7.Checked)
             {
+                textBox1.Text = SevenRule(textBox1.Text);
+            }
+        }
 
-                textBox1.Text = SevenRule(text);
+        private void label(object sender, EventArgs e)
+        {
+            if (sender == label1pravil)
+            {
+                MessageBox.Show("Все знаки препинания пишутся слева слитно со словом, а справа отбиваются пробелом. Тире отбивается пробелом с двух сторон. Скобки и кавычки пишутся слитно со словами, которые находятся внутри них.");
+            }
+
+            if (sender == label2pravil)
+            {
+                MessageBox.Show("Дефис пробелами не отбивается и всегда пишется слитно с частями слова или цифр, которые он разделяет.");
+            }
+
+            if (sender == label3pravil)
+            {
+                MessageBox.Show("Везде, где по правилам русского языка должно быть тире, ни в коем случае нельзя писать знак дефис, который по умолчанию доступен на клавиатуре. Символ тире задаётся конструкцией —. Например чтобы получить: «Книга — источник знания», нужно написать «Книга — источник знания».");
+            }
+
+            if (sender == label4pravil)
+            {
+                MessageBox.Show(" Везде, где в цифрах указывается минус, также нельзя писать знак дефиса, нужно писать знак минуса: − В арифметических конструкциях знаки операций отбиваются пробелом с двух сторон. Например «5 − 4 = 1».");
+            }
+
+            if (sender == label5pravil)
+            {
+                MessageBox.Show("Везде, где по правилам русского языка должен быть вопросительный знак, ни в коем случае нельзя писать вопросительный знак, который по умолчанию доступен на клавиатуре. Символ вопросительный знак задается как ¿ ");
+
+            }
+
+            if (sender == label6pravil)
+            {
+                MessageBox.Show("Следует всегда использовать букву «с». Неправильно писать вместо неё букву с в английской раскладке");
+            }
+
+            if (sender==label7pravil)
+            {
+                MessageBox.Show("Добро пожаловать в Древнюю Русь, когда она занимала первое место в Европе по трезвости на протяжении 3 столетий, где вино разбавляли водой, подобно грекам, хотя крепость была не выше 6%, давайте окунемся в этот мир с помощью архаизмов.");
+            }
+
+            if (sender == typograflabel)
+            {
+                MessageBox.Show("Это инструмент, который приводит текст в соответствие с правилами экранной типографики");
             }
         }
     }

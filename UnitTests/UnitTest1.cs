@@ -192,5 +192,15 @@ namespace UnitTests
             string result = MainForm.OneRule(text);
             Assert.AreEqual(expected, result);
         }
+
+        [TestMethod]
+        public void Test7rulesixthtest()
+        {
+            var mf = new MainForm();
+            string text = "«Папа, я явилась домой»";
+            string expected = "«Батюшка, я явилась домой»";
+            string result = MainForm.SevenRule(text);
+            Assert.AreEqual(expected, result);
+        }
     }
 }
